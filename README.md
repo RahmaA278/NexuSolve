@@ -9,7 +9,7 @@
 
 <br>
 
-🌟 A Collaborative Community Engagement Platform 🌟
+#### 🌟 A Collaborative Community Engagement Platform 🌟
 
 This innovative platform is here to empower community members to actively engage with local decision-makers and drive positive change. With this platform, they'll have a dedicated space to voice their concerns, share ideas, and collaborate with others who are passionate about making a difference. Whether it's addressing traffic congestion, improving local infrastructure, or tackling environmental issues, community members can come together to ensure their voices are heard and their issues are resolved. Plus, with active involvement from the council, effective resolution can be ensured every step of the way.
 
