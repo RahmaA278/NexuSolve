@@ -17,3 +17,5 @@ This innovative platform is here to empower community members to actively engage
 The aim is to establish a platform where community members can openly engage in constructive dialogue to address and resolve the challenges they encounter within their communities.
 
 Expanding on the previous project, I wanted to focus on user authentication using vanilla JavaScript. I also wanted to add more pages and complexity to enhance the overall experience.
+
+### Future features:
