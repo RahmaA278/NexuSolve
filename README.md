@@ -24,11 +24,18 @@ Expanding on the previous project, I wanted to focus on user authentication usin
 
 
 ## Backend
-url: 
+url: https://nexusolve-server.onrender.com
 
-| Route | Purpose | Parameters |
-|:------|---------|------------|
-||||
-||||
+| Route | Method | Purpose | Parameters | Data Required |
+|:------|---------|---------|------------|------------|
+|/profiles|GET|to list all the profiles|none|none|
+|/profiles/:id|GET|to show a specific profile|account_id|none|
+|/profiles/:id|PATCH|to update the profile image of a speacific profile|account_id|image_path|
+|/profiles/:id|DELETE|to delete a specific profile|account_id|none|
+|/profiles/token/:token|GET|to show a specific token|token code|none|
+|/profiles/token/:token|DELETE|to delete a specific token|token code|none|
+|/profiles/register|POST|to create a new profile|none|first_name, last_name, display_name, email, image_path, password|
+|/profiles/login|POST|to login in a profile and create an authentication token|none|email, password|
+||||||
 
 ## To view the application
