@@ -38,6 +38,16 @@ class Comment {
         return response.rows.map(c => new Comment(c));
     }
 
+    static async getByPost(id) {
+        const response = await db.query("SELECT * FROM comments WHERE post_id=$1;", [id]);
+
+        if(response.rows.length === 0) {
+            throw new Error("Unable to locate comments.")
+        }
+
+        return response.rows.map(c => new Comment(c));
+    }
+
     static async create(data) {
         const { account_id, post_id, content, date, anonymous } = data;
         let response = await db.query("INSERT INTO comments (account_id, post_id, content, date, anonymous) VALUES ($1, $2, $3, $4, $5) RETURNING *;", [account_id, post_id, content, date, anonymous]);

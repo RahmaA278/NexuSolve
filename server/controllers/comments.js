@@ -19,10 +19,20 @@ async function show (req, res) {
     }
 }
 
-async function showAll (req, res) {
+async function showAllByUser (req, res) {
     try {
         let id = req.params.id;
         const comments = await Comment.getByUser(id);
+        res.status(200).json(comments);
+    } catch(e) {
+        res.status(500).json({error: e.message})
+    }
+}
+
+async function showAllByPost (req, res) {
+    try {
+        let id = req.params.id;
+        const comments = await Comment.getByPost(id);
         res.status(200).json(comments);
     } catch(e) {
         res.status(500).json({error: e.message})
@@ -62,4 +72,4 @@ async function destroy (req, res) {
     }
 };
 
-module.exports={ index, show, showAll, create, update, destroy }
+module.exports={ index, show, showAllByUser, showAllByPost, create, update, destroy }
