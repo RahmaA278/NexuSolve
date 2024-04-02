@@ -36,6 +36,23 @@ url: https://nexusolve-server.onrender.com
 |/profiles/token/:token|DELETE|to delete a specific token|token code|none|
 |/profiles/register|POST|to create a new profile|none|first_name, last_name, display_name, email, image_path, password|
 |/profiles/login|POST|to login in a profile and create an authentication token|none|email, password|
-||||||
+|/uploads|GET|to upload an image to the uploads.html server file|none|image file|
+|/uploads|POST|to post an image uploaded by the client|none|image file, token|
+|/posts|GET|to list all posts|none|none|
+|/posts|POST|to create a post|none|account_id, category, title, content, date, anonymous|
+|/posts/:id|GET|to show a specific post|post_id|none|
+|/posts/:id|PATCH|to update the title and content of a specific post|post_id|title, content|
+|/posts/:id|DELETE|to delete a specific post|post_id|none|
+|/posts/user/:id|GET|to list all the posts of a specific user|account_id|none|
+|/comments|GET|to list all comments|none|none|
+|/comments|POST|to create a comment|none|account_id, post_id, content, date, anonymous|
+|/comments/:id|GET|to show a specific comment|comment_id|none|
+|/comments/:id|PATCH|to update the content of a specific comment|comment_id|content|
+|/comments/:id|DELETE|to delete a specific comment|comment_id|none|
+|/comments/user/:id|GET|to list all the comments of a specific user|account_id|none|
+|/comments/post/:id|GET|to list all the comments of a specific post|post_id|none|
 
 ## To view the application
+1. run the command `npm i` in the server and client folders, separately.
+2. run the command `npm run dev` in the server folder to get the server started.
+3. right click the register.html file in the client folder and select 'Open with Live Server'
