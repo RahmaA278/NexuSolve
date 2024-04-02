@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/* Background */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-size: cover;
+    background: white no-repeat;
+    font-family: 'Roboto', sans-serif;
+}
+
+#mainBody {
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
+/* Nav bar */
+nav {
+    background: rgba(0, 255, 195, 0.7);
+    color: #fff;
+    font-family: cursive;
+}
+
+#toPages {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.nav1 {
+    float: right;
+    display: block;
+    color: #fff;
+    padding: 12px 16px;
+    font-size: 21px;
+    text-decoration: none;
+}
+
+.nav1:hover {
+    background-color: #fff;
+    color: #1d7358;
+}
+
+#logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    float: left;
+    color: #fff;
+    width: 30%;
+    font-weight: bolder;
+    font-size: 20px;
+    padding: 5px 16px;
+}
+
+#logo img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+#logo span {
+    color: rgb(243, 243, 243);
+    font-family: cursive;
+    font-size: 20px;
+}
+
+/* Footer */
+
+footer {
+    margin-top: auto;
+    padding: 1px;
+    background: rgba(0, 255, 195, 0.7);
+    color: #fff;
+    font-family: cursive;
+    text-align: center;
+}
