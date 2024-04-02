@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="../js/dashboard.js" defer></script>
+</head>
+<body>
+
+    <nav>
+        <div id="logo">
+            <img class ="logo" srcset="../assets/logo.png"  alt= "logo">
+            <span>NexuSolve</span>
+        </div>
+        <ul id="toPages">
+            <li class="nav1"><a class="nav1" id="navLogout" href="#">Log Out</a></li>
+            <li class="nav1"><a class="nav1" id="navAbout" href="#">About</a></li>
+            <li class="nav1"><a class="nav1" id="navAcc" href="#">Account</a></li>
+        </ul>
+    </nav>
+
+    <div id="postFormPopup" class="formPopup">
+        <p>Please complete this form to post your issue</p>
+        <form id="postForm">
+            <select id="dropDownCate" name="dropdown-cate">
+                <option value="" disabled selected hidden>Select a category</option>
+                <option value="Rubbish and Recycling">Rubbish and Recycling</option>
+                <option value="Neighbourhood and Streets">Neighbourhood and Streets</option>
+                <option value="Learning and Schools">Learning and Schools</option>
+                <option value="Leisure, Parks and Libraries">Leisure, Parks and Libraries</option>
+            </select>
+            <input type="text" class="postFormInput" id="postTitle" name="post-title" placeholder="Enter a title for your post here." required><br>
+            <input type="text" class="postFormInput" id="postContent" name="post-content" placeholder="Write your post here." required><br>
+            <label for="anonCheckbox">Do you want to post anonymously?</label>
+            <input type="checkbox" id="anonCheckbox" name="anon-checkbox"><br>
+            <input id="postBtn" type="submit" value="Post">
+            <input id="postCancelBtn" type="submit" value="Cancel">
+        </form>
+    </div>
+
+    <div id="postCommentPopup" class="formPopup">
+        <p>Enter your comment:</p>
+        <form id="commentForm">
+            <input type="text" id="commentInput">
+            <label for="anonCheckbox2">Do you want to comment anonymously?</label>
+            <input type="checkbox" id="anonCheckbox2" name="anon-checkbox2"><br>
+            <input id="commentSubmit" type="submit" value="Comment">
+            <input id="commentCancelBtn" type="submit" value="Cancel">
+        </form>
+    </div>
+
+    <br>
+
+    <div id="mainBody">
+
+        <div class="helpBox">
+            <img src="../assets/background.png" alt="background">
+            <div class="grid-container">
+                <button class="grid-item" id="rarBox">Rubbish and Recycling</button>
+                <button class="grid-item" id="nasBox">Neighbourhood and streets</button>
+                <button class="grid-item" id="lasBox">Learning and schools</button>
+                <button class="grid-item" id="lpalBox">Leisure, parks and libraries</button>
+              </div>
+        </div>
+        
+        <div id="homeHeader">
+            <div id="discuss">
+                <p id="reportH1">Discussions</p>
+            </div>
+
+            <div id="reportBtn">
+                <button class="buttons" id="reportIssueBtn">Report an issue</button>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- POSTS -->
+        <div class="allPosts" id="all-posts">
+            <div class="fullPost">
+                <div class="subPost">
+                    <div class="post">
+                        <div class="profile-picture">
+                            <img src="" alt="Profile Picture">
+                        </div>
+                        <div class="post-content">
+                            <p class="postTitle">Barista need</p>
+                            <p class="postBody">I need one barista at the cafe for the day otherwise I'll have to close!</p>
+                        </div>
+                    </div>
+                    <div class="postInfo">
+                        <div class="postProperties" id="category1">
+                            <p class="pstInfo">event</p>
+                        </div>
+                        <div class=""postProperties>
+                            <p class="speech">🗨</p>
+                        </div>
+                        <div class="postProperties" id="toComment1">
+                            <button id="commentLink">Comment</button>
+                        </div>
+                        <div class="postProperties" id="postTimeStamp1">
+                            <p class="pstInfo">time</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="comments" id="comment1">
+                    <div class="subComment">
+                        <div class="comment">
+                            <div class="profile-picture">
+                                <img src="" alt="Profile Picture">
+                            </div>
+                            <div class="comment-content">
+                                <p>I can definitely help! when do you neeed me to help?</p>
+                            </div>
+                        </div>
+                        <div class="commentInfo">
+                            <div></div>
+                            <div class="commentProperties" id="commentTimeStamp1">
+                                <p class="cmntInfo">time</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subComment">
+                        <div class="comment">
+                            <div class="profile-picture">
+                                <img src="" alt="Profile Picture">
+                            </div>
+                            <div class="comment-content">
+                                <p>Oh no! I do not want that cafe to close.</p>
+                            </div>
+                        </div>
+                        <div class="commentInfo">
+                            <div></div>
+                            <div class="commentProperties" id="commentTimeStamp2">
+                                <p class="cmntInfo">time</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More comments added here -->
+                </div>
+            </div> <br>
+            <div class="fullPost">
+                <div class="subPost">
+                    <div class="post">
+                        <div class="profile-picture">
+                            <img src="" alt="Profile Picture">
+                        </div>
+                        <div class="post-content">
+                            <p class="postTitle">Too much litter</p>
+                            <p class="postBody">The park is too cluttered! who wants to help clean up?</p>
+                        </div>
+                    </div>
+                    <div class="postInfo">
+                        <div class="postProperties" id="category2">
+                            <p class="pstInfo">event</p>
+                        </div>
+                        <div class=""postProperties>
+                            <p class="speech">🗨</p>
+                        </div>
+                        <div class="postProperties" id="toComment2">
+                            <a id="commentLink2" href="#">Comment</a>
+                        </div>
+                        <div class="postProperties" id="postTimeStamp2">
+                            <p class="pstInfo">time</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="comments" id="comment2">
+                    <div class="subComment">
+                        <div class="comment">
+                            <div class="profile-picture">
+                                <img src="" alt="Profile Picture">
+                            </div>
+                            <div class="comment-content">
+                                <p>pesky pigeons keep of going through the rubbish I think </p>
+                            </div>
+                        </div>
+                        <div class="commentInfo">
+                            <div></div>
+                            <div class="commentProperties" id="commentTimeStamp4">
+                                <p class="cmntInfo">time</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subComment">
+                        <div class="comment">
+                            <div class="profile-picture">
+                                <img src="" alt="Profile Picture">
+                            </div>
+                            <div class="comment-content">
+                                <p>I'd love to help clean up! how do I sign up?</p>
+                            </div>
+                        </div>
+                        <div class="commentInfo">
+                            <div></div>
+                            <div class="commentProperties" id="commentTimeStamp5">
+                                <p class="cmntInfo">time</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More comments added here -->
+                </div>
+            </div> <br>
+            <!-- More posts added here -->
+        </div>
+    </div>
+
+    <br>
+    
+    <footer>
+        <p>&copy; 2024 NexuSolve. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
