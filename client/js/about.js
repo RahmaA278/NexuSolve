@@ -1,11 +1,11 @@
-const homePage = document.getElementById("navHome")
-const accPage = document.getElementById("navAcc")
-const logout = document.getElementById("navLogout")
-
 const token = localStorage.getItem('token');
 if (!token) {
     window.location.href = 'login.html';
 }
+
+const homePage = document.getElementById("navHome")
+const accPage = document.getElementById("navAcc")
+const logout = document.getElementById("navLogout")
 
 homePage.addEventListener('click', function(e) {
     e.preventDefault();
