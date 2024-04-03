@@ -251,26 +251,25 @@ input[type="checkbox"]:checked::before {
   }
 
   .grid-item:hover {
-    color: rgb(155, 101, 0);
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
 
   #rarBox {
     background-color: rgba(242, 180, 180, 0.95);
-  }
+  } #rarBox:hover { color: rgb(246, 72, 72); }
 
   #nasBox {
     background-color: rgba(204, 247, 209, 0.95);
-  }
+  } #nasBox:hover { color: rgb(77, 135, 84); }
 
   #lasBox {
     background-color: rgba(255, 246, 171, 0.95);
-  }
+  } #lasBox:hover { color: rgb(155, 101, 0); }
 
   #lpalBox {
     background-color: rgba(127, 188, 206, 0.95);
-  }
+  } #lpalBox:hover { color: rgb(0, 107, 142); }
 
 
 /* Report an issue */

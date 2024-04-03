@@ -1,3 +1,8 @@
+const token = localStorage.getItem('token');
+if (!token) {
+    window.location.href = 'login.html';
+}
+
 const accPage = document.getElementById("navAcc")
 const aboutPage = document.getElementById("navAbout")
 const logout = document.getElementById("navLogout")
@@ -16,11 +21,6 @@ const commentForm = document.getElementById("commentForm");
 const allCommentsContainer = document.getElementById("comment")
 const commentInput = document.getElementById("commentInput");
 const anonCheckbox2 = document.getElementById("anonCheckbox2");
-
-const token = localStorage.getItem('token');
-if (!token) {
-    window.location.href = 'login.html';
-}
 
 accPage.addEventListener('click', function(e) {
     e.preventDefault();
