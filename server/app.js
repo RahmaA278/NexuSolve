@@ -83,7 +83,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
 
   console.log(req.file)
 
-  const buffer = await sharp(req.file.buffer).resize({ height: 512, width: 512, fit: sharp.fit.cover, position: sharp.strategy.entropy }).toBuffer()
+  const buffer = await sharp(req.file.buffer).resize({ height: 512, width: 512, fit: sharp.fit.cover, position: sharp.strategy.attention }).toBuffer()
 
   const imageName = uniqueImageName()
   const params = {
