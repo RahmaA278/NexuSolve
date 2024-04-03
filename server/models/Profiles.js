@@ -48,7 +48,7 @@ class Profile {
             throw new Error("Email already exists");
         }
 
-        let response = await db.query("INSERT INTO profiles (first_name, last_name, display_name, email, image_name, image_url, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;", [first_name, last_name, display_name, email, image_name, image_url, password]);
+        let response = await db.query("INSERT INTO profiles (first_name, last_name, display_name, email, image_name, image_url, password) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;", [first_name, last_name, display_name, email, image_name, image_url, password]);
         
         return new Profile(response.rows[0]);
     }
