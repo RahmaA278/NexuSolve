@@ -59,13 +59,15 @@ async function getUserInfo () {
     const response = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`)
     const data = await response.json()
 
-const userData = {
-    profileImgSrc: data.image_url,
-    welcomeMsg: `Welcome, ${data.first_name} ${data.last_name}`,
-    accountNumber: data.account_id,
-    accountName: `${data.first_name} ${data.last_name}`,
-    emailAddress: data.email
-};
+    const userData = {
+        profileImgSrc: data.image_url,
+        welcomeMsg: `Welcome, ${data.display_name}`,
+        accountNumber: data.account_id,
+        firstName: data.first_name,
+        lastName: data.last_name,
+        displayName: data.display_name,
+        emailAddress: data.email
+    };
 
 function updateElementContent(elementId, data, defaultValue) {
     const element = document.getElementById(elementId);
@@ -83,7 +85,9 @@ if (userData.profileImgSrc !== null) {
 }
 updateElementContent("welcomeMsg", userData.welcomeMsg, "Welcome, Anonymous User!");
 updateElementContent("accountNumber", userData.accountNumber, "123456");
-updateElementContent("accountName", userData.accountName, "Anonymous User");
+updateElementContent("firstName", userData.firstName, "Anonymous");
+updateElementContent("lastName", userData.lastName, "User");
+updateElementContent("displayName", userData.displayName, "Anonymous User");
 updateElementContent("emailAddress", userData.emailAddress, "u.anon@gmail.com");
 }
 

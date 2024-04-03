@@ -88,7 +88,7 @@ footer {
 h1 {
     color: #26201d;
     font-weight: bolder;
-    font-size: x-large;
+    font-size: xx-large;
     text-align: center;
     padding-top: 4px;
     padding-left: 4px; 
@@ -104,8 +104,8 @@ h1 {
 /* Accounts Box 1 */
 
 .accountBox1 {
-    margin-left: 25%;
-    margin-top:4%;
+    margin-left: 20%;
+    margin-top:3%;
 }
 
 .profilePicture {
@@ -120,15 +120,15 @@ h1 {
 }
 
 .profilePicture img {
-    width: 170px;
-    height: 170px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
 }
 
 .welcome p {
     color: #26201d;
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 40px;
     text-align: center;
     margin-top: -15px;
     margin-bottom: 0px;
@@ -146,11 +146,11 @@ h1 {
 .accountBox2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 40px;
     width: 60%;
     position: absolute;
-    top: 47%;
-    left: 55%;
+    top: 40.5%;
+    left: 60%;
     transform: translate(-50%, -50%);
   }
 
@@ -161,6 +161,7 @@ h1 {
     padding-right: 30px;
     text-align: right;
     font-weight: bold;
+    font-size: 25px;
 }
 
 .grid-item1:last-child {
@@ -171,17 +172,10 @@ h1 {
     padding: 10px;
     padding-left: 0px;
     text-align: left;
+    font-size: 25px;
 }
 
 /* Buttons */
-
-.buttons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    transition: all 0.3s ease;
-  }
 
 #button1 {
     position: absolute;
@@ -192,7 +186,7 @@ h1 {
     font-size: 16px;
     font-weight: bold;
     border: 0px ;
-    top: 75%; left: 15%; 
+    top: 75%; left: 5%; 
     height: 13%;
     width: 13%;
     cursor: pointer; 
@@ -208,7 +202,7 @@ h1 {
     font-size: 16px;
     font-weight: bold;
     border: 0px ;
-    top: 75%; left: 35%; 
+    top: 75%; left: 30%; 
     height: 13%;
     width: 13%;
     cursor: pointer;
@@ -224,7 +218,7 @@ h1 {
     font-size: 16px;
     font-weight: bold;
     border: 0px ;
-    top: 75%; left: 55%; 
+    top: 75%; left: 56%; 
     height: 13%;
     width: 13%;
     cursor: pointer;
@@ -240,7 +234,7 @@ h1 {
     font-size: 16px;
     font-weight: bold;
     border: 0px ;
-    top: 75%; left: 75%; 
+    top: 75%; left: 82%; 
     height: 13%;
     width: 13%;
     cursor: pointer;
