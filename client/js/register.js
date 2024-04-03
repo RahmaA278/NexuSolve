@@ -17,7 +17,8 @@ regForm.addEventListener("submit", async (e) => {
             last_name: form.get("lastName"),
             display_name: form.get("displayName"),
             email: form.get("regEmail"),
-            image_path: form.get("imagePath"),
+            image_name: form.get("imageName"),
+            image_url: form.get("imageUrl"),
             password: form.get("password")
         })
     }
@@ -27,12 +28,12 @@ regForm.addEventListener("submit", async (e) => {
 
     if (response.status == 201) {
         e.target.reset();
-        window.location.assign("login.html");
+        window.location.assign("./html/login.html");
     } else {
         alert(data.error);
     }
 })
 
 loginHere.addEventListener('click', () => {
-    window.location.assign("login.html");
+    window.location.assign("./html/login.html");
 })
