@@ -56,8 +56,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/upload", async (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'uploads.html'));
-
   const token = req.headers.authorization.split(' ')[1];
   const tokenData = await Token.getOneByToken(token);
   const id = tokenData.account_id
@@ -73,6 +71,8 @@ app.get("/upload", async (req, res) => {
 
   const data = { image_url: url }
   const result = await profile.update(data);
+
+  res.sendFile(path.join(__dirname, 'views', 'uploads.html'));
 });
 
 app.post("/upload", upload.single("image"), async (req, res) => {
