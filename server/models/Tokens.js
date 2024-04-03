@@ -14,7 +14,7 @@ class Token {
     static async create(account_id) {
         const token = uuidv4();
         const expirationTimestamp = new Date();
-        expirationTimestamp.setHours(expirationTimestamp.getHours() + 1); // 1 hour from now
+        expirationTimestamp.setHours(expirationTimestamp.getHours() + 2); // 1 hour from now
         const response = await db.query("INSERT INTO tokens (account_id, token, expiration_timestamp) VALUES ($1, $2, $3) RETURNING token_id;", [account_id, token, expirationTimestamp]);
         const newId = response.rows[0].token_id;
         const newToken = await Token.getOneById(newId);
