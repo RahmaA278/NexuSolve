@@ -82,3 +82,175 @@ footer {
     font-family: cursive;
     text-align: center;
 }
+
+/* Header */
+
+h1 {
+    color: #26201d;
+    font-weight: bolder;
+    font-size: x-large;
+    text-align: center;
+    padding-top: 4px;
+    padding-left: 4px; 
+}
+
+/* Accounts page */
+
+.accountBox1, .accountBox2 {
+    display: inline-block;
+    margin-left: 10%;
+}
+
+/* Accounts Box 1 */
+
+.accountBox1 {
+    margin-left: 25%;
+    margin-top:4%;
+}
+
+.profilePicture {
+    margin: auto;
+    width: 60%;
+    margin-top: 10px;
+    margin-bottom: 10px;;
+}
+
+.profilePicture img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.welcome p {
+    color: #26201d;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: 0px;
+    padding: 4px;
+}
+
+.welcome {
+    margin: auto;
+    margin-top: 20px;
+    top: 73%; left: 19%; 
+}
+
+/* Account Box 2 */
+
+.accountBox2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 60%;
+    position: absolute;
+    top: 47%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+  }
+
+/* Style for each grid item */
+.grid-item1 {
+    border-right: 1px solid #26201d;
+    padding: 10px;
+    padding-right: 30px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.grid-item1:last-child {
+    border-right: none;
+}
+
+.grid-item2 {
+    padding: 10px;
+    padding-left: 0px;
+    text-align: left;
+}
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+
+#button1 {
+    position: absolute;
+    background: #F2B4B4;
+    border-radius: 17%;
+    border-color: #F2B4B4;
+    color:#262016;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0px ;
+    top: 75%; left: 15%; 
+    height: 13%;
+    width: 13%;
+    cursor: pointer; 
+    transition-duration: 0.4s;
+}
+
+#button2 {
+    position: absolute;
+    background: #CCF7D1;
+    border-radius: 17%;
+    border-color: #CCF7D1;
+    color:#262016;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0px ;
+    top: 75%; left: 35%; 
+    height: 13%;
+    width: 13%;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#button3 {
+    position: absolute;
+    background: #FFF6AB;
+    border-radius: 17%;
+    border-color: #FFF6AB;
+    color:#262016;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0px ;
+    top: 75%; left: 55%; 
+    height: 13%;
+    width: 13%;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#button4 {
+    position: absolute;
+    background: #7FBCCE;
+    border-radius: 17%;
+    border-color: #7FBCCE;
+    color:#262016;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0px ;
+    top: 75%; left: 75%; 
+    height: 13%;
+    width: 13%;
+    cursor: pointer;
+    transition-duration: 0.4s; 
+}
+
+#button1:hover, #button2:hover, #button3:hover, #button4:hover {
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Popups */
+
+#popup {
+    display: none;
+}
