@@ -114,8 +114,16 @@ uploadForm.addEventListener("submit", async (e) => {
         body: formData
     };
 
+    const urlOptions = {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        }
+    };
+
     try {
         const response = await fetch("https://nexusolve-server.onrender.com/upload", options);
+        const postUrl = await fetch("https://nexusolve-server.onrender.com/upload", urlOptions)
 
         if (response.ok) {
             alert("Your picture has been uploaded!");
