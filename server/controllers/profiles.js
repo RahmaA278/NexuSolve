@@ -41,6 +41,12 @@ async function update (req, res) {
     try {
         const id = req.params.id;
         const data = req.body;
+
+        if (data["password"] !== undefined) {
+            const salt = await bcrypt.genSalt(parseInt(process.env.BCRYPT_SALT_ROUNDS));
+            data["password"] = await bcrypt.hash(data["password"], salt);
+        }
+
         const profile = await Profile.getOneById(id);
         const result = await profile.update(data);
         res.status(200).json(result);

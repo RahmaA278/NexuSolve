@@ -52,11 +52,30 @@ class Profile {
         return new Profile(response.rows[0]);
     }
 
-    async update(imagePath) {
-        const response = await db.query("UPDATE profiles SET image_path = $1 WHERE account_id = $2 RETURNING *;",
-            [ imagePath, this.account_id ]);
-        if (response.rows.length != 1) {
-            throw new Error("Unable to update image.")
+    async update(data) {
+        const { display_name, email, image_path, password } = data;
+        const updates = [];
+
+        if (display_name !== undefined) {
+            updates.push(`display_name = '${display_name}'`);
+        }
+        if (email !== undefined) {
+            updates.push(`email = '${email}'`);
+        }
+        if (image_path !== undefined) {
+            updates.push(`image_path = '${image_path}'`);
+        }
+        if (password !== undefined) {
+            updates.push(`password = '${password}'`);
+        }
+    
+        if (updates.length === 0) {
+            throw new Error("No fields to update.");
+        }
+
+        const response = await db.query(`UPDATE profiles SET ${updates.join(', ')} WHERE account_id = $1 RETURNING *;`, [ this.account_id ]);
+        if (response.rows.length !== 1) {
+            throw new Error("Unable to update profile.")
         }
         return new Profile(response.rows[0]);
     }
