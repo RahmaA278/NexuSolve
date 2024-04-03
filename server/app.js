@@ -58,17 +58,21 @@ app.get("/", (req, res) => {
 app.get("/upload", async (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'uploads.html'));
 
-  const profiles = await Profile.getAll();
+  const token = req.headers.authorization.split(' ')[1];
+  const tokenData = await Token.getOneByToken(token);
+  const id = tokenData.account_id
+  const profile = await Profile.getOneById(id);
   
-  for (const p of profiles ) {
-    const getObjectParams = {
-      Bucket: bucketName,
-      Key: p.image_name,
-    }
-    const command = new GetObjectCommand(getObjectParams);
-    const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
-    p.image_url = url
+  const getObjectParams = {
+    Bucket: bucketName,
+    Key: profile.image_name,
   }
+  const command = new GetObjectCommand(getObjectParams);
+  const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
+  profile.image_url = url
+
+  const data = { image_url: url }
+  const result = await profile.update(data);
 });
 
 app.post("/upload", upload.single("image"), async (req, res) => {
@@ -94,14 +98,14 @@ app.post("/upload", upload.single("image"), async (req, res) => {
 
   res.send({})
 
-  // console.log('headers',req.headers.authorization)
+  console.log('headers',req.headers.authorization)
 
-  // const token = req.headers.authorization.split(' ')[1];
-  // const tokenData = await Token.getOneByToken(token);
-  // const id = tokenData.account_id
+  const token = req.headers.authorization.split(' ')[1];
+  const tokenData = await Token.getOneByToken(token);
+  const id = tokenData.account_id
 
   const data = { image_name: imageName }
-  const profile = await Profile.getOneById(3);
+  const profile = await Profile.getOneById(id);
   const result = await profile.update(data);
 
 });
