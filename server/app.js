@@ -1,8 +1,13 @@
+require("dotenv").config();
 const express=require('express')
 const cors=require('cors')
 const bodyParser = require('body-parser');
 const path = require('path');
 const multer = require('multer');
+const { S3Client, PutObjectCommand, GetObjectCommand } = require('@aws-sdk/client-s3')
+const { getSignedUrl } = require('@aws-sdk/s3-request-presigner')
+const crypto = require('crypto')
+const sharp = require('sharp')
 
 const profileRoute = require("./routers/profiles")
 const postRoute = require("./routers/posts")
@@ -11,15 +16,22 @@ const commentRoute = require("./routers/comments")
 const Profile = require("./models/Profiles");
 const Token = require("./models/Tokens");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./images")
+const bucketName = process.env.BUCKET_NAME
+const bucketRegion = process.env.BUCKET_REGION
+const accessKey = process.env.ACCESS_KEY
+const secretAccessKey = process.env.SECRET_ACCESS_KEY
+
+const s3 = new S3Client({
+  credentials: {
+    accessKeyId: accessKey,
+    secretAccessKey: secretAccessKey,
   },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname))
-  },
+  region: bucketRegion
 })
 
+const uniqueImageName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex')
+
+const storage = multer.memoryStorage()
 const upload = multer({storage: storage})
 
 const app=express()
@@ -34,7 +46,7 @@ app.set('view engine', 'html');
 app.use("/profiles", profileRoute)
 app.use("/posts", postRoute)
 app.use("/comments", commentRoute)
-app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", (req, res) => {
   res.json({
@@ -43,8 +55,20 @@ app.get("/", (req, res) => {
   })
 });
 
-app.get("/upload", (req, res) => {
+app.get("/upload", async (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'uploads.html'));
+
+  const profiles = await Profile.getAll();
+  
+  for (const p of profiles ) {
+    const getObjectParams = {
+      Bucket: bucketName,
+      Key: p.image_name,
+    }
+    const command = new GetObjectCommand(getObjectParams);
+    const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
+    p.image_url = url
+  }
 });
 
 app.post("/upload", upload.single("image"), async (req, res) => {
@@ -53,19 +77,31 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     return res.status(400).json({ error: "No file uploaded." });
   }
 
-  console.log("File uploaded:", req.file);
-  const image = req.file.json
+  console.log(req.file)
 
-  res.status(201).send(`Image uploaded: ${image}`);
+  const buffer = await sharp(req.file.buffer).resize({ height: 512, width: 512, fit: 'contain' }).toBuffer()
 
-  console.log('headers',req.headers.authorization)
+  const imageName = uniqueImageName()
+  const params = {
+    Bucket: bucketName,
+    Key: imageName,
+    Body: buffer,
+    ContentType: req.file.mimetype,
+  }
+  const command = new PutObjectCommand(params)
 
-  const token = req.headers.authorization.split(' ')[1];
-  const tokenData = await Token.getOneByToken(token);
-  const id = tokenData.account_id
+  await s3.send(command)
 
-  const data = { image_path: `${req.file.destination}/${req.file.filename}` }
-  const profile = await Profile.getOneById(id);
+  res.send({})
+
+  // console.log('headers',req.headers.authorization)
+
+  // const token = req.headers.authorization.split(' ')[1];
+  // const tokenData = await Token.getOneByToken(token);
+  // const id = tokenData.account_id
+
+  const data = { image_name: imageName }
+  const profile = await Profile.getOneById(3);
   const result = await profile.update(data);
 
 });

@@ -9,7 +9,8 @@ CREATE TABLE profiles (
     last_name VARCHAR(100) NOT NULL,
     display_name VARCHAR(100) DEFAULT 'My Profile',
     email VARCHAR(255) NOT NULL,
-    image_path VARCHAR(500) NULL,
+    image_name VARCHAR(500) NULL,
+    image_url VARCHAR(500) NULL,
     password CHAR(60) NOT NULL,
     PRIMARY KEY (account_id)
 );

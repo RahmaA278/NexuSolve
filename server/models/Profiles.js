@@ -1,13 +1,14 @@
 const db = require("../db/connect");
 
 class Profile {
-    constructor({account_id, first_name, last_name, display_name, email, image_path, password}) {
+    constructor({account_id, first_name, last_name, display_name, email, image_name, image_url, password}) {
         this.account_id=account_id;
         this.first_name=first_name;
         this.last_name=last_name;
         this.display_name=display_name;
         this.email=email;
-        this.image_path=image_path;
+        this.image_name=image_name;
+        this.image_url=image_url;
         this.password=password;
     }
 
@@ -40,20 +41,20 @@ class Profile {
     }
 
     static async create(data) {
-        const { first_name, last_name, display_name, email, image_path, password } = data;
+        const { first_name, last_name, display_name, email, image_name, image_url, password } = data;
 
         const existingProfile = await db.query("SELECT * FROM profiles WHERE email = $1", [email]);
         if (existingProfile.rows.length > 0) {
             throw new Error("Email already exists");
         }
 
-        let response = await db.query("INSERT INTO profiles (first_name, last_name, display_name, email, image_path, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;", [first_name, last_name, display_name, email, image_path, password]);
+        let response = await db.query("INSERT INTO profiles (first_name, last_name, display_name, email, image_name, image_url, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;", [first_name, last_name, display_name, email, image_name, image_url, password]);
         
         return new Profile(response.rows[0]);
     }
 
     async update(data) {
-        const { display_name, email, image_path, password } = data;
+        const { display_name, email, image_name, image_url, password } = data;
         const updates = [];
 
         if (display_name !== undefined) {
@@ -62,8 +63,11 @@ class Profile {
         if (email !== undefined) {
             updates.push(`email = '${email}'`);
         }
-        if (image_path !== undefined) {
-            updates.push(`image_path = '${image_path}'`);
+        if (image_name !== undefined) {
+            updates.push(`image_name = '${image_name}'`);
+        }
+        if (image_url !== undefined) {
+            updates.push(`image_url = '${image_url}'`);
         }
         if (password !== undefined) {
             updates.push(`password = '${password}'`);
