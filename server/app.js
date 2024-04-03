@@ -34,7 +34,7 @@ app.set('view engine', 'html');
 app.use("/profiles", profileRoute)
 app.use("/posts", postRoute)
 app.use("/comments", commentRoute)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.get("/", (req, res) => {
   res.json({
@@ -61,12 +61,12 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   console.log('headers',req.headers.authorization)
 
   const token = req.headers.authorization.split(' ')[1];
-  const data = await Token.getOneByToken(token);
-  const id = data.account_id
+  const tokenData = await Token.getOneByToken(token);
+  const id = tokenData.account_id
 
-  const imagePath = `${req.file.destination}/${req.file.filename}`
+  const data = { image_path: `${req.file.destination}/${req.file.filename}` }
   const profile = await Profile.getOneById(id);
-  const result = await profile.update(imagePath);
+  const result = await profile.update(data);
 
 });
 
