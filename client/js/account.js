@@ -198,7 +198,7 @@ updateDNForm.addEventListener("submit", async (e) => {
     closePopup2();
 
     try {
-        const getIdRes = await fetch(`http://localhost:5020/profiles/token/${token}`);
+        const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`);
         const getId = await getIdRes.json()
         const id = getId.account_id
 
@@ -215,7 +215,7 @@ updateDNForm.addEventListener("submit", async (e) => {
             })
         }
 
-        const response = await fetch(`http://localhost:5020/profiles/${id}`, options);
+        const response = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`, options);
 
         if (response.ok) {
             alert("Your display name has been updated!");
@@ -236,7 +236,7 @@ updateEmailForm.addEventListener("submit", async (e) => {
     closePopup3();
 
     try {
-        const getIdRes = await fetch(`http://localhost:5020/profiles/token/${token}`);
+        const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`);
         const getId = await getIdRes.json()
         const id = getId.account_id
 
@@ -253,7 +253,7 @@ updateEmailForm.addEventListener("submit", async (e) => {
             })
         }
 
-        const response = await fetch(`http://localhost:5020/profiles/${id}`, options);
+        const response = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`, options);
 
         if (response.ok) {
             alert("Your email has been updated!");
@@ -281,7 +281,7 @@ removePicBtn.addEventListener("click", async () => {
     };
 
     try {
-        const response = await fetch("http://localhost:5020/upload", options);
+        const response = await fetch("https://nexusolve-server.onrender.com/upload", options);
 
         if (response.ok) {
             alert("Your picture has been removed.");
@@ -302,7 +302,7 @@ changePasswordForm.addEventListener("submit", async (e) => {
     closePopup5();
 
     try {
-        const getIdRes = await fetch(`http://localhost:5020/profiles/token/${token}`);
+        const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`);
         const getId = await getIdRes.json()
         const id = getId.account_id
 
@@ -320,7 +320,7 @@ changePasswordForm.addEventListener("submit", async (e) => {
             })
         }
 
-        const response = await fetch(`http://localhost:5020/profiles/${id}`, options);
+        const response = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`, options);
 
         if (response.ok) {
             alert("Your passwod has been changed!");
