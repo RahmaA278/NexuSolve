@@ -57,9 +57,9 @@ logout.addEventListener('click', async (e) => {
 /* Display Posts and Comments */
 
 async function displayContent() {
-    const postsRes = await fetch('http://localhost:5020/posts')
+    const postsRes = await fetch('https://nexusolve-server.onrender.com/posts')
     const posts = await postsRes.json()
-    const commentsRes = await fetch('http://localhost:5020/comments')
+    const commentsRes = await fetch('https://nexusolve-server.onrender.com/comments')
     const comments = await commentsRes.json()
 
         // Function to display comments for a specific post
@@ -68,7 +68,7 @@ async function displayContent() {
             const postComments = comments.filter(comment => comment.post_id === postId);
             postComments.forEach(async (comment) => {
                 const id = comment.account_id
-                const profileRes = await fetch(`http://localhost:5020/profiles/${id}`)
+                const profileRes = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`)
                 const profile = await profileRes.json()
                 const profilePictureSrc = comment.anonymous === true ? "../assets/anon.jpg" : `${profile.image_url}`;
                 const formattedDate = new Date(comment.date).toLocaleString()
@@ -98,7 +98,7 @@ async function displayContent() {
         // Display posts
         posts.forEach(async (post) => {
             const id = post.account_id
-            const profileRes = await fetch(`http://localhost:5020/profiles/${id}`)
+            const profileRes = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`)
             const profile = await profileRes.json()
             const profilePictureSrc = post.anonymous === true ? "../assets/anon.jpg" : `${profile.image_url}`;
             const formattedDate = new Date(post.date).toLocaleString()
@@ -168,11 +168,11 @@ commentCancelBtn.addEventListener('click', function() {
 postBtn.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    const getIdRes = await fetch(`http://localhost:5020/profiles/token/${token}`)
+    const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`)
     const getId = await getIdRes.json()
     const id = getId.account_id
 
-    const getProfileRes = await fetch(`http://localhost:5020/profiles/${id}`)
+    const getProfileRes = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`)
     const getProfile = await getProfileRes.json()
     const profilePic = getProfile.image_url
 
@@ -195,7 +195,7 @@ postBtn.addEventListener('click', async (e) => {
     }
 
     try {
-        const response = await fetch('http://localhost:5020/posts', options);
+        const response = await fetch('https://nexusolve-server.onrender.com/posts', options);
 
         if (!response.ok) {
             throw new Error('Failed to save post to database');
@@ -268,11 +268,11 @@ commentSubmit.addEventListener('submit', async (e) => {
         e.preventDefault();
         const postId = e.target.dataset.postId;
 
-        const getIdRes = await fetch(`http://localhost:5020/profiles/token/${token}`)
+        const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`)
         const getId = await getIdRes.json()
         const id = getId.account_id
 
-        const getProfileRes = await fetch(`http://localhost:5020/profiles/${id}`)
+        const getProfileRes = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`)
         const getProfile = await getProfileRes.json()
         const profilePic = getProfile.image_url
 
@@ -294,7 +294,7 @@ commentSubmit.addEventListener('submit', async (e) => {
         }
 
         try {
-            const response = await fetch('http://localhost:5020/comments', options);
+            const response = await fetch('https://nexusolve-server.onrender.com/comments', options);
 
             if (!response.ok) {
                 throw new Error('Failed to save comment to database');
