@@ -42,12 +42,20 @@ async function update (req, res) {
         const id = req.params.id;
         const data = req.body;
 
+        const profile = await Profile.getOneById(id);
+        const currentPassword = profile.password
+
         if (data["password"] !== undefined) {
+            const oldPassword = data["oldPassword"];
+            const isOldPasswordCorrect = await bcrypt.compare(oldPassword, currentPassword);
+            if (!isOldPasswordCorrect) {
+                alert("The current password you entered is incorrect.");
+                return;
+            }
             const salt = await bcrypt.genSalt(parseInt(process.env.BCRYPT_SALT_ROUNDS));
             data["password"] = await bcrypt.hash(data["password"], salt);
         }
 
-        const profile = await Profile.getOneById(id);
         const result = await profile.update(data);
         res.status(200).json(result);
     } catch (e) {
