@@ -56,34 +56,34 @@ class Profile {
     async update(data) {
         const { display_name, email, image_name, image_url, password } = data;
         const updates = [];
-
+    
         if (display_name !== undefined) {
-            updates.push(`display_name = '${display_name}'`);
+            updates.push(`display_name = ${display_name !== null ? `'${display_name}'` : 'null'}`);
         }
         if (email !== undefined) {
-            updates.push(`email = '${email}'`);
+            updates.push(`email = ${email !== null ? `'${email}'` : `${null}`}`);
         }
         if (image_name !== undefined) {
-            updates.push(`image_name = '${image_name}'`);
+            updates.push(`image_name = ${image_name !== null ? `'${image_name}'` : `${null}`}`);
         }
         if (image_url !== undefined) {
-            updates.push(`image_url = '${image_url}'`);
+            updates.push(`image_url = ${image_url !== null ? `'${image_url}'` : `${null}`}`);
         }
         if (password !== undefined) {
-            updates.push(`password = '${password}'`);
+            updates.push(`password = ${password !== null ? `'${password}'` : `${null}`}`);
         }
     
         if (updates.length === 0) {
             throw new Error("No fields to update.");
         }
-
+    
         const response = await db.query(`UPDATE profiles SET ${updates.join(', ')} WHERE account_id = $1 RETURNING *;`, [ this.account_id ]);
         if (response.rows.length !== 1) {
             throw new Error("Unable to update profile.")
         }
         return new Profile(response.rows[0]);
     }
-
+    
     async destroy() {
         const response = await db.query("DELETE FROM profiles WHERE account_id = $1 RETURNING *;", [this.account_id]);
         return new Profile(response.rows[0]);
