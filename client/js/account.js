@@ -6,15 +6,23 @@ if (!token) {
 const homePage = document.getElementById("navHome")
 const aboutPage = document.getElementById("navAbout")
 const logout = document.getElementById("navLogout")
+const page = document.getElementById("accountPage")
+const popup1 = document.getElementById("popup1");
+const popup2 = document.getElementById("popup2");
+const popup3 = document.getElementById("popup3");
+const popup4 = document.getElementById("popup4");
+const popup5 = document.getElementById("popup5");
 const updatePic = document.getElementById("updatePicture")
-const popup = document.getElementById("popup");
 const uploadForm = document.getElementById("displayPicture");
 const fileInput = document.getElementById('imagePath');
 const updateDisplayName = document.getElementById('button1');
+const updateDNForm = document.getElementById('updateDisplayName')
 const updateEmail = document.getElementById('button2');
+const updateEmailForm = document.getElementById('updateEmail')
 const removePicture = document.getElementById('button3');
-const updatePassword = document.getElementById('button4');
-
+const removePicBtn = document.getElementById('removePicBtn')
+const changePassword = document.getElementById('button4');
+const changePasswordForm = document.getElementById('updatePassword')
 
 homePage.addEventListener('click', function(e) {
     e.preventDefault();
@@ -93,18 +101,60 @@ updateElementContent("emailAddress", userData.emailAddress, "u.anon@gmail.com");
 
 getUserInfo()
 
-function openPopup() {
-    popup.style.display = "block";
+/* Handle popups */
+
+function openPopup1() {
+    popup1.style.display = "block";
+    page.style.display = "none";
 }
-function closePopup() {
-    popup.style.display = "none";
+function closePopup1() {
+    popup1.style.display = "none";
+    page.style.display = "block";
 }
 
-updatePic.addEventListener("click", openPopup);
+function openPopup2() {
+    popup2.style.display = "block";
+    page.style.display = "none";
+}
+function closePopup2() {
+    popup2.style.display = "none";
+    page.style.display = "block";
+}
+
+function openPopup3() {
+    popup3.style.display = "block";
+    page.style.display = "none";
+}
+function closePopup3() {
+    popup3.style.display = "none";
+    page.style.display = "block";
+}
+
+function openPopup4() {
+    popup4.style.display = "block";
+    page.style.display = "none";
+}
+function closePopup4() {
+    popup4.style.display = "none";
+    page.style.display = "block";
+}
+
+function openPopup5() {
+    popup5.style.display = "block";
+    page.style.display = "none";
+}
+function closePopup5() {
+    popup5.style.display = "none";
+    page.style.display = "block";
+}
+
+/* Button functions */
+
+updatePic.addEventListener("click", openPopup1);
 
 uploadForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    closePopup();
+    closePopup1();
 
     const formData = new FormData();
     formData.append('image', fileInput.files[0]);
@@ -131,8 +181,152 @@ uploadForm.addEventListener("submit", async (e) => {
 
         if (response.ok) {
             alert("Your picture has been uploaded!");
+            window.location.reload();
         } else {
             alert("An error occurred while uploading the picture.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred.");
+    }
+});
+
+updateDisplayName.addEventListener("click", openPopup2);
+
+updateDNForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    closePopup2();
+
+    try {
+        const getIdRes = await fetch(`http://localhost:5020/profiles/token/${token}`);
+        const getId = await getIdRes.json()
+        const id = getId.account_id
+
+        const form = new FormData(e.target);
+
+        const options = {
+            method: "PATCH",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                display_name: form.get("displayName"),
+            })
+        }
+
+        const response = await fetch(`http://localhost:5020/profiles/${id}`, options);
+
+        if (response.ok) {
+            alert("Your display name has been updated!");
+            window.location.reload();
+        } else {
+            alert("An error occurred while updating your display name.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred.");
+    }
+});
+
+updateEmail.addEventListener("click", openPopup3);
+
+updateEmailForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    closePopup3();
+
+    try {
+        const getIdRes = await fetch(`http://localhost:5020/profiles/token/${token}`);
+        const getId = await getIdRes.json()
+        const id = getId.account_id
+
+        const form = new FormData(e.target);
+
+        const options = {
+            method: "PATCH",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: form.get("email"),
+            })
+        }
+
+        const response = await fetch(`http://localhost:5020/profiles/${id}`, options);
+
+        if (response.ok) {
+            alert("Your email has been updated!");
+            window.location.reload();
+        } else {
+            alert("An error occurred while updating your email.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred.");
+    }
+});
+
+removePicture.addEventListener("click", openPopup4)
+
+removePicBtn.addEventListener("click", async () => {
+
+    closePopup4();
+
+    const options = {
+        method: "DELETE",
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        }
+    };
+
+    try {
+        const response = await fetch("http://localhost:5020/upload", options);
+
+        if (response.ok) {
+            alert("Your picture has been removed.");
+            window.location.reload();
+        } else {
+            alert("An error occurred while removing the picture.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred.");
+    }
+});
+
+changePassword.addEventListener("click", openPopup5);
+
+changePasswordForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    closePopup5();
+
+    try {
+        const getIdRes = await fetch(`http://localhost:5020/profiles/token/${token}`);
+        const getId = await getIdRes.json()
+        const id = getId.account_id
+
+        const form = new FormData(e.target);
+
+        const options = {
+            method: "PATCH",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                password: form.get("password"),
+                oldPassword: form.get("oldPassword")
+            })
+        }
+
+        const response = await fetch(`http://localhost:5020/profiles/${id}`, options);
+
+        if (response.ok) {
+            alert("Your passwod has been changed!");
+            window.location.reload();
+        } else {
+            alert("Incorrect password.");
         }
     } catch (error) {
         console.error("Error:", error);

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Courgette&family=Kurale&display=swap');
 
 /* Background */
 html, body {
@@ -13,7 +12,7 @@ html, body {
 body {
     background-size: cover;
     background: white no-repeat;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Kurale';
 }
 
 #mainBody {
@@ -25,7 +24,6 @@ body {
 nav {
     background: rgba(0, 255, 195, 0.7);
     color: #fff;
-    font-family: cursive;
 }
 
 #toPages {
@@ -68,8 +66,7 @@ nav {
 
 #logo span {
     color: rgb(243, 243, 243);
-    font-family: cursive;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 /* Footer */
@@ -79,8 +76,9 @@ footer {
     padding: 1px;
     background: rgba(0, 255, 195, 0.7);
     color: #fff;
-    font-family: cursive;
     text-align: center;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 /* Header */
@@ -149,7 +147,7 @@ h1 {
     gap: 40px;
     width: 60%;
     position: absolute;
-    top: 40.5%;
+    top: 42%;
     left: 60%;
     transform: translate(-50%, -50%);
   }
@@ -183,7 +181,8 @@ h1 {
     border-radius: 17%;
     border-color: #F2B4B4;
     color:#262016;
-    font-size: 16px;
+    font-family: 'Kurale';
+    font-size: 20px;
     font-weight: bold;
     border: 0px ;
     top: 75%; left: 5%; 
@@ -199,7 +198,8 @@ h1 {
     border-radius: 17%;
     border-color: #CCF7D1;
     color:#262016;
-    font-size: 16px;
+    font-family: 'Kurale';
+    font-size: 20px;
     font-weight: bold;
     border: 0px ;
     top: 75%; left: 30%; 
@@ -215,7 +215,8 @@ h1 {
     border-radius: 17%;
     border-color: #FFF6AB;
     color:#262016;
-    font-size: 16px;
+    font-family: 'Kurale';
+    font-size: 20px;
     font-weight: bold;
     border: 0px ;
     top: 75%; left: 56%; 
@@ -231,7 +232,8 @@ h1 {
     border-radius: 17%;
     border-color: #7FBCCE;
     color:#262016;
-    font-size: 16px;
+    font-family: 'Kurale';
+    font-size: 20px;
     font-weight: bold;
     border: 0px ;
     top: 75%; left: 82%; 
@@ -249,6 +251,74 @@ h1 {
 
 /* Popups */
 
-#popup {
+.popup {
     display: none;
+    width: 25%;
+    height: 25%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 255, 195, 0.4);
+    border: 2px solid rgba(0,197,224, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;   
+}
+
+.close {
+    color: rgb(0, 114, 129);
+    font-size: 300%;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+#imagePath {
+    width: 70%;
+    margin-left: 60px;
+    padding: 10px;
+    background: rgb(0, 255, 195);
+    color: rgb(32, 31, 31);
+    border: none;
+    border-radius: 5px;
+}
+
+#displayNameInput, #regEmail, #oldPassword, #newPassword {
+    width: 70%;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgb(0, 255, 195);
+    color: rgb(32, 31, 31);
+    border: none;
+    border-radius: 5px;
+} #displayName:focus, #regEmail:focus, #oldPassword:focus, #newPassword:focus { outline: none; }
+#oldPassword { margin-bottom: 5px; }
+
+#confirmRemoval {
+    margin-top: -5px;
+    text-align: center;
+    color: rgb(32, 31, 31);
+    font-size:20px;
+    font-weight: bolder;
+}
+
+#displayPicBtn, #displayNameBtn, #emailBtn, #removePicBtn, #passwordBtn {
+    width: 70%;
+    margin-top: 20px;
+    margin-left: 70px;
+    padding: 8px;
+    background: orange;
+    color: rgb(32, 31, 31);
+    border: none;
+    border-radius: 5px;
+    font-family: 'Kurale';
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+} #removePicBtn { margin-top: 10px; } #passwordBtn { margin-top: 0; }
+#displayPicBtn:hover, #displayNameBtn:hover, #emailBtn:hover, #removePicBtn:hover, #passwordBtn:hover {
+    background: rgb(0,197,224);
+    font-weight: bolder;
+    color: orange;
 }

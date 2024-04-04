@@ -21,17 +21,52 @@
         </ul>
     </nav>
 
-    <div id="popup" class="popup">
+    <div id="popup1" class="popup">
         <div class="popup-content">
-            <span class="close" onclick="closePopup()">&times;</span>
+            <span class="close" onclick="closePopup1()">&times;</span>
             <form id="displayPicture">
                 <input type="file" class="regInput" id="imagePath" name="imagePath" required><br><br>
-                <input id="displayPicBtn" type="submit" value="Upload">
+                <input id="displayPicBtn" type="submit" value="UPLOAD">
+            </form>
+        </div>
+    </div>
+    <div id="popup2" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup2()">&times;</span>
+            <form id="updateDisplayName">
+                <input type="text" class="regInput" id="displayNameInput" name="displayName" placeholder="Enter your display name here" required><br>
+                <input id="displayNameBtn" type="submit" value="SUBMIT">
+            </form>
+        </div>
+    </div>
+    <div id="popup3" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup3()">&times;</span>
+            <form id="updateEmail">
+                <input type="email" class="regInput" id="regEmail" name="email" placeholder="Enter your email here" required><br>
+                <input id="emailBtn" type="submit" value="SUBMIT">
+            </form>
+        </div>
+    </div>
+    <div id="popup4" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup4()">&times;</span>
+            <p id="confirmRemoval">Are you sure you want to remove your profile picture?</p>
+            <button id="removePicBtn">CONFIRM DELETION</button>
+        </div>
+    </div>
+    <div id="popup5" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup5()">&times;</span>
+            <form id="updatePassword">
+                <input type="password" class="regInput" id="oldPassword" name="oldPassword" placeholder="Enter current password here" required><br>
+                <input type="password" class="regInput" id="newPassword" name="password" placeholder="Enter new password here" required><br>
+                <input id="passwordBtn" type="submit" value="SUBMIT">
             </form>
         </div>
     </div>
 
-    <div class="accountPage">
+    <div class="accountPage" id="accountPage">
 
         <div class="accountBox1">
 
@@ -64,7 +99,7 @@
             <button class ="button" id = "button1" value="Update Display Name">Update Display Name</button>
             <button class ="button" id = "button2" value="Update Email">Update Email</button>
             <button class ="button" id = "button3" value="Update Profile Picture">Remove Profile Picture</button>
-            <button class ="button" id = "button4" value="Update Password">Update Password</button>
+            <button class ="button" id = "button4" value="Change Password">Change Password</button>
         </div>
     </div>
     <br>
