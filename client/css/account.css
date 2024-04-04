@@ -55,7 +55,7 @@ nav {
     color: #fff;
     width: 30%;
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 30px;
     padding: 5px 16px;
 }
 
@@ -66,7 +66,6 @@ nav {
 
 #logo span {
     color: rgb(243, 243, 243);
-    font-size: 30px;
 }
 
 /* Footer */
