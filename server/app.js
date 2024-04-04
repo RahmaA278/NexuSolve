@@ -66,7 +66,7 @@ app.get("/upload", async (req, res) => {
     Key: profile.image_name,
   }
   const command = new GetObjectCommand(getObjectParams);
-  const url = await getSignedUrl(s3, command, { expiresIn: 3600315360000 });
+  const url = await getSignedUrl(s3, command, { expiresIn: 86400 });
   profile.image_url = url
 
   const data = { image_url: url }
@@ -135,7 +135,7 @@ app.delete("/upload", async (req, res) => {
   const result = await profile.update(data);
 
   res.send({})
-  
+
 })
 
 module.exports=app
