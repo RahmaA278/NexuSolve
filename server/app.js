@@ -4,7 +4,7 @@ const cors=require('cors')
 const bodyParser = require('body-parser');
 const path = require('path');
 const multer = require('multer');
-const { S3Client, PutObjectCommand, GetObjectCommand } = require('@aws-sdk/client-s3')
+const { S3Client, PutObjectCommand, GetObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3')
 const { getSignedUrl } = require('@aws-sdk/s3-request-presigner')
 const crypto = require('crypto')
 const sharp = require('sharp')
@@ -66,7 +66,7 @@ app.get("/upload", async (req, res) => {
     Key: profile.image_name,
   }
   const command = new GetObjectCommand(getObjectParams);
-  const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
+  const url = await getSignedUrl(s3, command, { expiresIn: 3600315360000 });
   profile.image_url = url
 
   const data = { image_url: url }
@@ -109,5 +109,33 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   const result = await profile.update(data);
 
 });
+
+app.delete("/upload", async (req, res) => {
+
+  console.log('headers',req.headers.authorization)
+
+  const token = req.headers.authorization.split(' ')[1];
+  const tokenData = await Token.getOneByToken(token);
+  const id = tokenData.account_id
+  const profile = await Profile.getOneById(id);
+
+  if (!profile) {
+    res.status(404).send("profile not found")
+    return
+  }
+
+  const params = {
+    Bucket: bucketName,
+    Key: profile.image_name
+  }
+  const command = new DeleteObjectCommand(params)
+  await s3.send(command)
+
+  const data = { image_name: null, image_url: null }
+  const result = await profile.update(data);
+
+  res.send({})
+  
+})
 
 module.exports=app
