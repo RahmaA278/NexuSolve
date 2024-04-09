@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Courgette&family=Kurale&display=swap');
+
+body {
+    background: rgba(0, 255, 195, 0.7);
+    font-family: 'Kurale';
+}
+
+#logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-top: -80px;
+}
+
+#logo img {
+    width: 500px;
+}
+
+#logo p {
+    margin-top: -100px;
+    color: rgb(243, 243, 243);
+    font-size: 70px;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    color: rgb(243, 243, 243);
+}
+
+.intro {
+    width: 70%;
+    margin: auto;
+    margin-top: -40px;
+    color:rgb(32, 31, 31);
+    text-align: center;
+}
+
+.btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:100px;
+}
+
+button {
+    width: 20%;
+    padding: 5px;
+    margin-left: 70px;
+    margin-right: 100px;
+    background: orange;
+    color: rgb(32, 31, 31);
+    font-family: 'Kurale';
+    font-size: 30px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(0,197,224);
+    font-weight: bolder;
+    color: orange;
+}
+
+/* Styling for different screen sizes */
+
+@media (max-width: 1280px ) and (max-height: 600px) {
+
+    #logo {
+        margin-top: -50px;
+    }
+
+    #logo img {
+        width: 300px;
+    }
+
+    #logo p {
+        margin-top: -80px;
+        font-size: 60px;
+    }
+
+    footer {
+        margin-top: -5px;
+    }
+
+    .intro {
+        width: 80%;
+        margin-top: -70px;
+        font-size: 13px;
+    }
+    
+    .btnContainer {
+        margin-top: 35px;
+    }
+}
+
+@media (max-width: 475px) {
+    #logo {
+        margin-top: -10px;
+    }
+
+    #logo img {
+        width: 150px;
+    }
+
+    #logo p {
+        margin-top: -30px;
+        font-size: 40px;
+    }
+
+    footer {
+        margin-top: 0;
+    }
+
+    .intro {
+        width: 80%;
+        margin-top: -30px;
+        font-size: 10px;
+    }
+    
+    .btnContainer {
+        margin-top: 40px;
+    }
+
+    button {
+        width: 40%;
+        padding: 5px;
+        margin-left: 0px;
+        margin-right: 10px;
+        background: orange;
+        color: rgb(32, 31, 31);
+        font-family: 'Kurale';
+        font-size: 20px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    } #loginHere { margin-right: 0; }
+}
