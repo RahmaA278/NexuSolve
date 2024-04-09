@@ -20,6 +20,8 @@ Expanding on the previous project, I wanted to focus on user authentication usin
 
 ### Future features:
 
+A Reports page: This feature will enable council members to close issues raised by the community. Council members will have to clearly state resolutions to the issue being closed or state alternative options. Once closed, issues will be archived on a dedicated page for community reference and transparency.
+
 ## Frontend
 url: https://nexusolve-client.onrender.com
 
