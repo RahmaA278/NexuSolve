@@ -109,3 +109,99 @@ footer {
 .other:hover {
     color: orange;
 }
+
+@media (max-width: 1280px) {
+    /* nav {
+        border: 1px solid blue;
+        width: 1247px;
+    } */
+    
+    #logo img {
+        width: 120px;
+    }
+    
+    #logo span {
+        font-size: 35px;
+    }
+
+    footer {
+        margin-top: -25px;
+        margin-bottom: -10px;
+    }
+
+    /* .container {
+        border: 1px solid blue;
+        width: 1247px;
+    } */
+
+    #background {
+        padding: 6% 10% 0 10%;
+        font-size: 25px;
+    }
+    
+    #regBox {
+        margin: 2% auto;
+    }
+    
+    #inner {
+        width: 50%;
+        padding: 25px 25px 5px 25px;
+    }
+    
+    #form {
+        margin-bottom: 20px;
+    }
+    
+    .regInput {
+        margin-bottom: 0;
+    }
+
+    #regBtn {
+        margin-top: -10px;
+        font-size: 20px;
+    }
+
+    #other {
+        margin-top: -10px;
+        margin-bottom: 5px;
+        margin-left: 60px;
+        font-size: 14px;
+    }
+    
+}
+
+@media (max-width: 412px) {
+    /* nav {
+        border: 1px solid red;
+        width: 394px;
+    } */
+    
+    #logo img {
+        width: 90px;
+    }
+    
+    #logo span {
+        font-size: 30px;
+    }
+
+    /* .container {
+        border: 1px solid red;
+        width: 394px;
+        display: block;
+    } */
+
+    #background {
+        text-align: center;
+        font-size: 20px;
+    }
+    
+    #regBox {
+        margin: -30px 0 0 70px;
+    }
+    
+    #other {
+        margin-top: 0;
+        margin-left: 0;
+    }
+    
+}
