@@ -36,24 +36,34 @@ Each page is optimised to adapt seamlessly across the designated screen sizes, e
 ## Backend
 url: https://nexusolve-server.onrender.com
 
-| Route | Method | Purpose | Parameters | Data Required |
+### Profile Endpoints
+| Endpoints | Method | Purpose | Parameters | Data Required |
 |:------|---------|---------|------------|------------|
 |/profiles|GET|to list all the profiles|none|none|
 |/profiles/:id|GET|to show a specific profile|account_id|none|
-|/profiles/:id|PATCH|to update the profile image of a speacific profile|account_id|image_path|
+|/profiles/:id|PATCH|to update the profile image of a speacific profile|account_id|display_name, email, image_name, image_url, password|
 |/profiles/:id|DELETE|to delete a specific profile|account_id|none|
 |/profiles/token/:token|GET|to show a specific token|token code|none|
 |/profiles/token/:token|DELETE|to delete a specific token|token code|none|
-|/profiles/register|POST|to create a new profile|none|first_name, last_name, display_name, email, image_path, password|
-|/profiles/login|POST|to login in a profile and create an authentication token|none|email, password|
+|/profiles/register|POST|to create a new profile|none|first_name, last_name, display_name, email, image_name, image_url, password|
+|/profiles/login|POST|to login into a profile and create an authentication token|none|email, password|
+### Upload Endpoints
+| Endpoints | Method | Purpose | Parameters | Data Required |
+|:------|---------|---------|------------|------------|
 |/uploads|GET|to upload an image to the uploads.html server file|none|image file|
 |/uploads|POST|to post an image uploaded by the client|none|image file, token|
+### Posts Endpoints
+| Endpoints | Method | Purpose | Parameters | Data Required |
+|:------|---------|---------|------------|------------|
 |/posts|GET|to list all posts|none|none|
 |/posts|POST|to create a post|none|account_id, category, title, content, date, anonymous|
 |/posts/:id|GET|to show a specific post|post_id|none|
 |/posts/:id|PATCH|to update the title and content of a specific post|post_id|title, content|
 |/posts/:id|DELETE|to delete a specific post|post_id|none|
 |/posts/user/:id|GET|to list all the posts of a specific user|account_id|none|
+### Comments Endpoints
+| Endpoints | Method | Purpose | Parameters | Data Required |
+|:------|---------|---------|------------|------------|
 |/comments|GET|to list all comments|none|none|
 |/comments|POST|to create a comment|none|account_id, post_id, content, date, anonymous|
 |/comments/:id|GET|to show a specific comment|comment_id|none|
