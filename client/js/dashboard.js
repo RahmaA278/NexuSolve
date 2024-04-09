@@ -210,36 +210,34 @@ postBtn.addEventListener('click', async (e) => {
         const profilePictureSrc = anonCheckbox.checked ? "../assets/anon.jpg" : `${profilePic}`;
 
         fullPost.innerHTML = `
-        <div class="fullPost">
-            <div class="subPost">
-                <div class="post">
-                    <div class="profile-picture">
-                        <img src="${profilePictureSrc}" alt="Profile Picture">
-                    </div>
-                    <div class="post-content">
-                        <p class="postTitle">${postTitle.value}</p>
-                        <p class="postBody">${postContent.value}</p>
-                    </div>
+        <div class="subPost">
+            <div class="post">
+                <div class="profile-picture">
+                    <img src="${profilePictureSrc}" alt="Profile Picture">
                 </div>
-                <div class="postInfo">
-                    <div class="postProperties" id="category">
-                        <p class="pstInfo">${dropDownCate.value}</p>
-                    </div>
-                    <div class="postProperties">
-                        <p class="speech">🗨</p>
-                    </div>
-                    <div class="postProperties" id="toComment">
-                        <button class="commentLink" id="commentLink" data-post-id=${postId}>Comment</button>
-                    </div>
-                    <div class="postProperties" id="postTimeStamp">
-                        <p class="pstInfo">${getCurrentTime()}</p>
-                    </div>
+                <div class="post-content">
+                    <p class="postTitle">${postTitle.value}</p>
+                    <p class="postBody">${postContent.value}</p>
                 </div>
             </div>
-            <div class="comments" comment${postId}>
-                <!-- Comments section -->
+            <div class="postInfo">
+                <div class="postProperties" id="category">
+                    <p class="pstInfo">${dropDownCate.value}</p>
+                </div>
+                <div class="postProperties">
+                    <p class="speech">🗨</p>
+                </div>
+                <div class="postProperties" id="toComment">
+                    <button class="commentLink" id="commentLink" data-post-id=${postId}>Comment</button>
+                </div>
+                <div class="postProperties" id="postTimeStamp">
+                    <p class="pstInfo">${getCurrentTime()}</p>
+                </div>
             </div>
-        </div> <br>
+        </div>
+        <div class="comments" comment${postId}>
+            <!-- Comments section -->
+        </div>
     `;
 
         const firstChild = allPostsContainer.firstChild;
