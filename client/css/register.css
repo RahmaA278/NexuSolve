@@ -177,12 +177,12 @@ footer {
     } */
     
     #logo img {
-        margin-left: 40px;
-        width: 100px;
+        margin-left: 70px;
+        width: 70px;
     }
     
     #logo span {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     .container {
@@ -192,20 +192,26 @@ footer {
     }
 
     #background {
+        margin-top: -30px;
         text-align: center;
-        font-size: 20px;
+        font-size: 16px;
     }
     
     #regBox {
-        margin: 0 70px;
+        margin: -20px 0 0 70px;
+    }
+
+    .regInput {
+        margin-bottom: -10px;
     }
     
     #other {
-        margin: 0 0 15px 5px;
+        margin: -10px 0 0 5px;
+        text-align: center;
     }
 
     footer {
-        margin-top: 50px;
+        margin-top: -15px;
         margin-bottom: -10px;
     }
     
