@@ -52,7 +52,7 @@ url: https://nexusolve-server.onrender.com
 |:------|---------|---------|------------|------------|
 |/uploads|GET|to upload an image to the uploads.html server file|none|image file|
 |/uploads|POST|to post an image uploaded by the client|none|image file, token|
-### Posts Endpoints
+### Post Endpoints
 | Endpoints | Method | Purpose | Parameters | Data Required |
 |:------|---------|---------|------------|------------|
 |/posts|GET|to list all posts|none|none|
@@ -61,7 +61,7 @@ url: https://nexusolve-server.onrender.com
 |/posts/:id|PATCH|to update the title and content of a specific post|post_id|title, content|
 |/posts/:id|DELETE|to delete a specific post|post_id|none|
 |/posts/user/:id|GET|to list all the posts of a specific user|account_id|none|
-### Comments Endpoints
+### Comment Endpoints
 | Endpoints | Method | Purpose | Parameters | Data Required |
 |:------|---------|---------|------------|------------|
 |/comments|GET|to list all comments|none|none|
