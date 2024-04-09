@@ -21,7 +21,17 @@ Expanding on the previous project, I wanted to focus on user authentication usin
 ### Future features:
 
 ## Frontend
+url: https://nexusolve-client.onrender.com
 
+I've developed responsive designs using pure CSS to cater to three distinct screen sizes: large monitors, medium-sized laptops, and large mobile devices. The application comprises the following pages:
+  - Landing page
+  - Registration page
+  - Login page
+  - Dashboard
+  - Account page
+  - About pages
+
+Each page is optimised to adapt seamlessly across the designated screen sizes, ensuring an optimal viewing experience for users accessing the application from different devices.
 
 ## Backend
 url: https://nexusolve-server.onrender.com
