@@ -77,4 +77,4 @@ url: https://nexusolve-server.onrender.com
 ## To view the application
 1. run the command `npm i` in the server and client folders, separately.
 2. run the command `npm run dev` in the server folder to get the server started.
-3. right click the register.html file in the client folder and select 'Open with Live Server'
+3. right click the index.html file in the client folder and select 'Open with Live Server'
