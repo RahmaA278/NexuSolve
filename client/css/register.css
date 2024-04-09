@@ -161,6 +161,42 @@ footer {
     
 }
 
+@media (max-width: 640px) {
+    
+    #logo img {
+        width: 90px;
+    }
+    
+    #logo span {
+        font-size: 30px;
+    }
+
+    footer {
+        margin-top: -20px;
+    }
+
+    #background {
+        margin-top: -20px;
+        padding: 15% 5% 0 5%;
+        font-size: 20px;
+    }
+    
+    #regBox {
+        margin: 4% auto;
+        width: 170%;
+    }
+    
+    #inner {
+        width: 70%;
+    }
+
+    #other {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+}
+
 @media (max-width: 475px) {
     
     #logo img {
