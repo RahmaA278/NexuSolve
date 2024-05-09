@@ -96,17 +96,24 @@ app.post("/upload", upload.single("image"), async (req, res) => {
 
   await s3.send(command)
 
-  res.send({})
-
   console.log('headers',req.headers.authorization)
 
   const token = req.headers.authorization.split(' ')[1];
   const tokenData = await Token.getOneByToken(token);
   const id = tokenData.account_id
 
-  const data = { image_name: imageName }
+  const expirationTimestamp = new Date();
+  expirationTimestamp.setHours(expirationTimestamp.getHours() + 24);
+
+  const data = {
+    image_name: imageName,
+    image_url_expiration: expirationTimestamp.toISOString(),
+  };
   const profile = await Profile.getOneById(id);
   const result = await profile.update(data);
+  console.log(result)
+
+  res.send({})
 
 });
 

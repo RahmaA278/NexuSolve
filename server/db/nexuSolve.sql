@@ -11,6 +11,7 @@ CREATE TABLE profiles (
     email VARCHAR(255) NOT NULL,
     image_name VARCHAR(500) NULL,
     image_url VARCHAR(500) NULL,
+    image_url_expiration TIMESTAMP NULL,
     password CHAR(60) NOT NULL,
     PRIMARY KEY (account_id)
 );

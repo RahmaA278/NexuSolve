@@ -120,6 +120,12 @@ cron.schedule('0 * * * *', async () => {
     } catch (error) {
     console.error('Error deleting expired tokens:', error);
     }
+    try {
+    await Profile.deleteExpiredImageUrls();
+    console.log('Expired image urls deleted successfully.');
+    } catch (error) {
+    console.error('Error deleting expired image urls:', error);
+    }
 });
 
 module.exports={ index, show, register, update, destroy, login, token, logout }
