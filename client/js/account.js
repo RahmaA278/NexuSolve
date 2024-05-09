@@ -23,6 +23,7 @@ const removePicture = document.getElementById('button3');
 const removePicBtn = document.getElementById('removePicBtn')
 const changePassword = document.getElementById('button4');
 const changePasswordForm = document.getElementById('updatePassword')
+const profileImg = document.getElementById("profileImg");
 
 homePage.addEventListener('click', function(e) {
     e.preventDefault();
@@ -86,11 +87,16 @@ function updateElementContent(elementId, data, defaultValue) {
     }
 }
 
-if (userData.profileImgSrc !== null) {
-    document.getElementById("profileImg").src = `${userData.profileImgSrc}`;
-} else {
+profileImg.addEventListener("error", function() {
+    profileImg.src = "../assets/anon.jpg";
+});
 
+if (userData.profileImgSrc !== null) {
+    profileImg.src = userData.profileImgSrc;
+} else {
+    profileImg.src = "../assets/anon.jpg";
 }
+
 updateElementContent("welcomeMsg", userData.welcomeMsg, "Welcome, Anonymous User!");
 updateElementContent("accountNumber", userData.accountNumber, "123456");
 updateElementContent("firstName", userData.firstName, "Anonymous");
@@ -178,6 +184,8 @@ uploadForm.addEventListener("submit", async (e) => {
     try {
         const response = await fetch("https://nexusolve-server.onrender.com/upload", options);
         const postUrl = await fetch("https://nexusolve-server.onrender.com/upload", urlOptions)
+        // const response = await fetch("http://localhost:5020/upload", options);
+        // const postUrl = await fetch("http://localhost:5020/upload", urlOptions)
 
         if (response.ok) {
             alert("Your picture has been uploaded!");
