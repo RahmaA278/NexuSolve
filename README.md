@@ -20,6 +20,8 @@ Expanding on the previous project, I wanted to focus on user authentication usin
 
 ### Future features:
 
+A Reports page: This feature will enable council members to close issues raised by the community. Council members will have to clearly state resolutions to the issue being closed or state alternative options. Once closed, issues will be archived on a dedicated page for community reference and transparency.
+
 ## Frontend
 url: https://nexusolve-client.onrender.com
 
@@ -36,24 +38,34 @@ Each page is optimised to adapt seamlessly across the designated screen sizes, e
 ## Backend
 url: https://nexusolve-server.onrender.com
 
-| Route | Method | Purpose | Parameters | Data Required |
+### Profile Endpoints
+| Endpoints | Method | Purpose | Parameters | Data Required |
 |:------|---------|---------|------------|------------|
 |/profiles|GET|to list all the profiles|none|none|
 |/profiles/:id|GET|to show a specific profile|account_id|none|
-|/profiles/:id|PATCH|to update the profile image of a speacific profile|account_id|image_path|
+|/profiles/:id|PATCH|to update the profile image of a speacific profile|account_id|display_name, email, image_name, image_url, password|
 |/profiles/:id|DELETE|to delete a specific profile|account_id|none|
 |/profiles/token/:token|GET|to show a specific token|token code|none|
 |/profiles/token/:token|DELETE|to delete a specific token|token code|none|
-|/profiles/register|POST|to create a new profile|none|first_name, last_name, display_name, email, image_path, password|
-|/profiles/login|POST|to login in a profile and create an authentication token|none|email, password|
+|/profiles/register|POST|to create a new profile|none|first_name, last_name, display_name, email, image_name, image_url, password|
+|/profiles/login|POST|to login into a profile and create an authentication token|none|email, password|
+### Upload Endpoints
+| Endpoints | Method | Purpose | Parameters | Data Required |
+|:------|---------|---------|------------|------------|
 |/uploads|GET|to upload an image to the uploads.html server file|none|image file|
 |/uploads|POST|to post an image uploaded by the client|none|image file, token|
+### Post Endpoints
+| Endpoints | Method | Purpose | Parameters | Data Required |
+|:------|---------|---------|------------|------------|
 |/posts|GET|to list all posts|none|none|
 |/posts|POST|to create a post|none|account_id, category, title, content, date, anonymous|
 |/posts/:id|GET|to show a specific post|post_id|none|
 |/posts/:id|PATCH|to update the title and content of a specific post|post_id|title, content|
 |/posts/:id|DELETE|to delete a specific post|post_id|none|
 |/posts/user/:id|GET|to list all the posts of a specific user|account_id|none|
+### Comment Endpoints
+| Endpoints | Method | Purpose | Parameters | Data Required |
+|:------|---------|---------|------------|------------|
 |/comments|GET|to list all comments|none|none|
 |/comments|POST|to create a comment|none|account_id, post_id, content, date, anonymous|
 |/comments/:id|GET|to show a specific comment|comment_id|none|
@@ -65,4 +77,4 @@ url: https://nexusolve-server.onrender.com
 ## To view the application
 1. run the command `npm i` in the server and client folders, separately.
 2. run the command `npm run dev` in the server folder to get the server started.
-3. right click the register.html file in the client folder and select 'Open with Live Server'
+3. right click the index.html file in the client folder and select 'Open with Live Server'
