@@ -11,26 +11,24 @@
 </head>
 <body>
 
-
-    <nav>
-        <div id="logo">
-            <img class ="Logo"srcset="../assets/logo.png"  alt= "logo">
-            <span>NexuSolve</span>
+    <header>
+        <div class="container">
+            <div class="logo | flex-row-center">
+                <img class ="Logo"srcset="../assets/logo.png"  alt= "logo">
+                <span>NexuSolve</span>
+            </div>
         </div>
-    </nav>
+    </header>
 
+    <section class="register">
         <div class = "container">
-            <div id="background">
+            <div class="background">
                 <h1>Get connected with the community</h1>
             </div>
-
-            <br>
-
-            <div id="regBox">
-                <div id="inner">
-                    <form id="registerForm">
-
-                        <div id="form">
+            <div class="regBox">
+                <div class="inner | flex-column-center-1rem">
+                    <form class="form | flex-column-center-1rem width-full" id="registerForm">
+                        <div class="form-input | width-full">
                             <input type="text" class="regInput" id="firstName" name="firstName" placeholder="Enter your first name here" required><br>
                             <br>
                             <input type="text" class="regInput" id="lastName" name="lastName" placeholder="Enter your last name here" required><br>
@@ -41,26 +39,20 @@
                             <br>
                             <input type="password" class="regInput" id="regPassword" name="password" placeholder="Enter password here" required><br>
                         </div>
-                    
-                        <br>
-                        
-                        <div>
-                        <input id="regBtn" type="submit" value="Register">
+                        <div class="form-button | width-full">
+                        <input class="reg-btn" id="regBtn" type="submit" value="Register">
                         </div>
-                    
-                        <br>
                     </form>
-            
-                    <p id="other">Already registered? <a class="other" id="loginHere" href="#">Login here</a></p>
+                    <p class="login-here">Already registered? <a class="login-link" id="loginHere" href="#">Login here</a></p>
                 </div>
             </div>
-
         </div>
-
-    <br>
-    
+    </section>
+            
     <footer>
-        <p>&copy; 2024 NexuSolve. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 NexuSolve. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
