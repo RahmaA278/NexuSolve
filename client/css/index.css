@@ -1,142 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Courgette&family=Kurale&display=swap');
+  /* GENERAL STYLING */
 
-body {
-    background: rgba(0, 255, 195, 0.7);
-    font-family: 'Kurale';
+  body {
+    background: var(--clr-primary-400);
+    font-family: var(--ff-body);
+    color: var(--clr-neutral-900);
 }
 
-#logo {
+.container > * {
+    margin-top: var(--size-600);
+}
+
+/* logo */
+
+.logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
-    margin-top: -80px;
+    align-items: center;
 }
 
-#logo img {
-    width: 500px;
+.logo img {
+    width: 25%;
 }
 
-#logo p {
-    margin-top: -100px;
-    color: rgb(243, 243, 243);
-    font-size: 70px;
+.logo p {
+    margin-top: calc(var(--size-100)*-1);
+    color: var(--clr-neutral-100);
+    font-size: var(--fs-1000);
 }
+
+/* footer */
 
 footer {
-    margin-top: 50px;
     text-align: center;
-    color: rgb(243, 243, 243);
+    color: var(--clr-neutral-100);
+    font-size: var(--fs-700);
 }
+
+/* content */
 
 .intro {
-    width: 70%;
-    margin: auto;
-    margin-top: -40px;
-    color:rgb(32, 31, 31);
+    color:var(--clr-neutral-900);
     text-align: center;
+    font-size: var(--fs-800);
 }
 
-.btnContainer {
+/* buttons */
+
+.btns {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top:100px;
+    flex-direction: row;
+    padding: var(--size-100);
+    gap: var(--size-600);
 }
 
 button {
-    width: 20%;
-    padding: 5px;
-    margin-left: 70px;
-    margin-right: 100px;
-    background: orange;
-    color: rgb(32, 31, 31);
-    font-family: 'Kurale';
-    font-size: 30px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
+    width: 90%;
+    padding: var(--size-300);
+    background: var(--clr-accent-400);
+    color: var(--clr-neutral-900);
+    font-size: var(--fs-800);
+    font-weight: var(--fw-bold);
+    border: none;
+    border-radius: var(--size-200);
 }
 
 button:hover {
-    background: rgb(0,197,224);
-    font-weight: bolder;
-    color: orange;
+    background: var(--clr-primary-400);
+    font-weight: var(--fw-bold);
+    color: var(--clr-accent-400);
 }
 
-/* Styling for different screen sizes */
-
-@media (max-width: 1280px ) and (max-height: 600px) {
-
-    #logo {
-        margin-top: -50px;
-    }
-
-    #logo img {
-        width: 300px;
-    }
-
-    #logo p {
-        margin-top: -80px;
-        font-size: 60px;
-    }
-
-    footer {
-        margin-top: -5px;
-    }
-
-    .intro {
-        width: 80%;
-        margin-top: -70px;
-        font-size: 13px;
-    }
-    
-    .btnContainer {
-        margin-top: 35px;
-    }
-}
-
-@media (max-width: 475px) {
-    #logo {
-        margin-top: -10px;
-    }
-
-    #logo img {
-        width: 200px;
-    }
-
-    #logo p {
-        margin-top: -30px;
-        font-size: 50px;
-    }
-
-    footer {
-        margin-top: -20px;
-    }
-
-    .intro {
-        width: 80%;
-        margin-top: -40px;
-        font-size: 11px;
-    }
-    
-    .btnContainer {
-        margin-top: 30px;
-    }
-
+@media (max-width: 36em) {    
     button {
-        width: 40%;
-        padding: 5px;
-        margin-left: 0px;
-        margin-right: 10px;
-        background: orange;
-        color: rgb(32, 31, 31);
-        font-family: 'Kurale';
-        font-size: 20px;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    } #loginHere { margin-right: 0; }
+        padding: var(--size-100);
+        font-size: var(--fs-800);
+    }
+}
+
+@media (max-width: 34em) {
+    .intro {
+        font-size: var(--fs-750);
+    }
+}
+
+@media (max-height: 49em) {
+    .logo p {
+        font-size: var(--fs-900);
+    }
+    .intro {
+        font-size: var(--fs-700);
+    }
+    button {
+        padding: var(--size-100);
+        font-size: var(--fs-700);
+    }
+    footer {
+        font-size: var(--fs-600);
+    }
 }
