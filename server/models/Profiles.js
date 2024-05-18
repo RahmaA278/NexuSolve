@@ -1,4 +1,5 @@
 const db = require("../db/connect");
+const { DateTime } = require('luxon');
 
 class Profile {
     constructor({account_id, first_name, last_name, display_name, email, image_name, image_url, image_url_expiration, password}) {
@@ -54,9 +55,8 @@ class Profile {
     }
 
     static async deleteExpiredImageUrls() {
-        const currentTimestamp = moment().utcOffset('+01:00').format('YYYY-MM-DD HH:mm:ss');
-        const timezoneOffset = moment().format('Z').replace(':', '');
-        const formattedCurrentTimestamp = currentTimestamp + ' ' + timezoneOffset;
+        const currentTimestamp = DateTime.now().setZone('Europe/London');
+        const formattedCurrentTimestamp = currentTimestamp.toFormat('yyyy-MM-dd HH:mm:ss ZZZZ');
         const response = await db.query('UPDATE profiles SET image_url = NULL WHERE image_url_expiration <= $1', [formattedCurrentTimestamp]);
         
         if (response.rowCount === 0) {
