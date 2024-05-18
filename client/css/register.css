@@ -7,8 +7,7 @@ body {
 }
 
 .container > * {
-    outline: 2px solid red;
-    margin-top: var(--size-500);
+    margin-top: var(--size-600);
 }
 
 /* header */
