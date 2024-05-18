@@ -8,11 +8,17 @@
     --clr-accent-100: hsl(40, 100%, 96%);
   
     --clr-primary-400: hsl(166, 100%, 50%);
+    --clr-primary-500: hsl(190, 100%, 43.9%);
+    --clr-primary-600: hsl(190, 100%, 43.9%);
   
     --clr-neutral-100: hsl(0, 0%, 98%);
     --clr-neutral-200: hsl(0, 0%, 97%);
     --clr-neutral-400: hsl(227, 12%, 61%);
     --clr-neutral-900: hsl(233, 12%, 13%);
+
+    --clr-box-bg: hsla(190, 100%, 43.9%, 0.5);
+    --clr-box-border: hsla(190, 100%, 43.9%, 0.3);
+    --clr-input-bg: hsla(0, 0%, 95%, 0.6);
   
     --ff-primary: "Kurale", sans-serif;
   
@@ -27,6 +33,7 @@
     --fs-400: 0.875rem;
     --fs-500: 0.9375rem;
     --fs-600: 1rem;
+    --fs-650: 1.25rem;
     --fs-700: 1.5rem;
     --fs-750: 1.8rem;
     --fs-800: 2rem;
@@ -179,6 +186,20 @@
     width: min(var(--max-width), 100% - (var(--container-padding)*2));
     margin-inline: auto;
   }
+
+  .flex-row-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-column-center-1rem {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    justify-content: center;
+    align-items: center;
+  }
   
   .y-center {
     align-items: center;
@@ -297,6 +318,8 @@
   .margin-top-900 { margin-block-start: var(--size-900); }
   
   .mx-auto { margin-inline: auto; }
+
+  .width-full { width: 100% }
   
   .display-sm-none {
     display: none;
