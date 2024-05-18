@@ -3,6 +3,23 @@ if (!token) {
     window.location.href = 'login.html';
 }
 
+async function handleTokenExpiration(token) {
+    try {
+        const tokenDataRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`);
+        const tokenData = await tokenDataRes.json();
+        const currentTime = new Date().getTime();
+
+        if (currentTime > tokenData.expiration_timestamp) {
+            localStorage.clear()
+            window.location.href = 'login.html';
+        }
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+
+handleTokenExpiration(token);
+
 const accPage = document.getElementById("navAcc")
 const aboutPage = document.getElementById("navAbout")
 const logout = document.getElementById("navLogout")
@@ -70,13 +87,35 @@ async function displayContent() {
                 const id = comment.account_id
                 const profileRes = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`)
                 const profile = await profileRes.json()
-                const profilePictureSrc = comment.anonymous === true ? "../assets/anon.jpg" : `${profile.image_url}`;
+                const profilePicId = `profilePic${comment.id}` 
+                // const profileImg = document.getElementById(profilePicId);
+                // let profileImageError = false;
+
+                // profileImg.addEventListener("error", function() {
+                //     profileImageError = true;
+                // });
+
+                // // Add an event listener to handle errors when loading the image
+                // profileImg.addEventListener("error", function() {
+                //     // Display the default image when there's an error loading the profile image
+                //     profileImg.src = "../assets/anon.jpg";
+                // });
+
+                // // Set the source of the image
+                // if (profile.image_url !== null) {
+                //     profileImg.src = profile.image_url;
+                // } else {
+                //     // Display the default image if userData.profileImgSrc is null
+                //     profileImg.src = "../assets/anon.jpg";
+                // }
+                const profilePictureSrc = !profile.image_url ? "../assets/error.png" : comment.anonymous ? "../assets/anon.jpg" : profile.image_url;
+            
                 const formattedDate = new Date(comment.date).toLocaleString()
                 const commentElement = document.createElement('div');
                 commentElement.classList.add('subComment');
                 commentElement.innerHTML = `
-                    <div class="comment">
-                        <div class="profile-picture">
+                    <div class="comment" id="comment${comment.id}">
+                        <div class="profile-picture" id="${profilePicId}">
                             <img src="${profilePictureSrc}" alt="Profile Picture">
                         </div>
                         <div class="comment-content">
@@ -100,13 +139,13 @@ async function displayContent() {
             const id = post.account_id
             const profileRes = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`)
             const profile = await profileRes.json()
-            const profilePictureSrc = post.anonymous === true ? "../assets/anon.jpg" : `${profile.image_url}`;
+            const profilePictureSrc = !profile.image_url ? "../assets/error.png" : post.anonymous ? "../assets/anon.jpg" : profile.image_url;
             const formattedDate = new Date(post.date).toLocaleString()
             const postContainer = document.createElement('div');
             postContainer.classList.add('fullPost');
             postContainer.innerHTML = `
-                <div class="subPost">
-                    <div class="post">
+                <div class="subPost" id="subPost${post.post_id}">
+                    <div class="post" id="post${post.post_id}">
                         <div class="profile-picture">
                             <img src="${profilePictureSrc}" alt="Profile Picture">
                         </div>
@@ -123,7 +162,7 @@ async function displayContent() {
                             <p class="speech">🗨</p>
                         </div>
                         <div class="postProperties" id="toComment${post.post_id}">
-                            <button class="commentLink" data-post-id="${post.post_id}">Comment</button>
+                            <button class="commentLink" id="commentLink${post.post_id}" data-post-id=${post.post_id}>Comment</button>
                         </div>
                         <div class="postProperties" id="postTimeStamp${post.post_id}">
                             <p class="pstInfo">${formattedDate}</p>
@@ -139,8 +178,7 @@ async function displayContent() {
             allPostsContainer.insertBefore(postContainer, firstChild);
             allPostsContainer.insertBefore(document.createElement("br"), firstChild);
             
-            // Display comments for this post
-            displayComments(post.post_id, comments);
+           displayComments(post.post_id, comments);
         });
 }
 
@@ -210,8 +248,8 @@ postBtn.addEventListener('click', async (e) => {
         const profilePictureSrc = anonCheckbox.checked ? "../assets/anon.jpg" : `${profilePic}`;
 
         fullPost.innerHTML = `
-        <div class="subPost">
-            <div class="post">
+        <div class="subPost" id="subPost${postId}">
+            <div class="post" id="post${postId}">
                 <div class="profile-picture">
                     <img src="${profilePictureSrc}" alt="Profile Picture">
                 </div>
@@ -221,21 +259,21 @@ postBtn.addEventListener('click', async (e) => {
                 </div>
             </div>
             <div class="postInfo">
-                <div class="postProperties" id="category">
+                <div class="postProperties" id="category${postId}">
                     <p class="pstInfo">${dropDownCate.value}</p>
                 </div>
                 <div class="postProperties">
                     <p class="speech">🗨</p>
                 </div>
-                <div class="postProperties" id="toComment">
-                    <button class="commentLink" id="commentLink" data-post-id=${postId}>Comment</button>
+                <div class="postProperties" id="toComment${postId}">
+                    <button class="commentLink" id="commentLink${postId}" data-post-id=${postId}>Comment</button>
                 </div>
-                <div class="postProperties" id="postTimeStamp">
+                <div class="postProperties" id="postTimeStamp${postId}">
                     <p class="pstInfo">${getCurrentTime()}</p>
                 </div>
             </div>
         </div>
-        <div class="comments" comment${postId}>
+        <div class="comments" id="comment${postId}">
             <!-- Comments section -->
         </div>
     `;
@@ -245,7 +283,7 @@ postBtn.addEventListener('click', async (e) => {
         allPostsContainer.insertBefore(fullPost, firstChild);
         allPostsContainer.insertBefore(document.createElement("br"), firstChild);
 
-        const newCommentLink = fullPost.querySelector('.commentLink');
+        const newCommentLink = document.getElementById(`commentLink${postId}`);
         newCommentLink.addEventListener('click', function() {
             console.log('hello');
             commentPopup.style.display = 'block';
@@ -261,7 +299,7 @@ postBtn.addEventListener('click', async (e) => {
     }
 });
 
-commentSubmit.addEventListener('submit', async (e) => {
+allPostsContainer.addEventListener('click', async (e) => {
     if (e.target.classList.contains('commentLink')) {
         e.preventDefault();
         const postId = e.target.dataset.postId;
@@ -274,64 +312,82 @@ commentSubmit.addEventListener('submit', async (e) => {
         const getProfile = await getProfileRes.json()
         const profilePic = getProfile.image_url
 
-        const formData = {
-            account_id: id,
-            post_id: postId,
-            content: commentInput.value,
-            date: getCurrentTime(),
-            anonymous: anonCheckbox2.checked
-        };
+        commentPopup.style.display = 'block';
+        mainBody.style.display = 'none';
 
-        const options = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        }
+        commentSubmit.removeEventListener('click', handleSubmit);
+        commentSubmit.addEventListener('click', handleSubmit);
 
-        try {
-            const response = await fetch('https://nexusolve-server.onrender.com/comments', options);
+        async function handleSubmit(e) {
+            console.log('submitted!')
+            e.preventDefault();
 
-            if (!response.ok) {
-                throw new Error('Failed to save comment to database');
+            const formData = {
+                account_id: id,
+                post_id: postId,
+                content: commentInput.value,
+                date: getCurrentTime(),
+                anonymous: anonCheckbox2.checked
+            };
+
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
             }
 
-            const fullComment = document.createElement("div");
-            fullComment.classList.add("subComment");
+            try {
+                const response = await fetch('https://nexusolve-server.onrender.com/comments', options);
 
-            const profilePictureSrc = anonCheckbox2.checked ? "../assets/anon.jpg" : `${profilePic}`;
+                if (!response.ok) {
+                    throw new Error('Failed to save comment to database');
+                }
 
-            fullComment.innerHTML = `
-                <div class="subComment">
-                    <div class="comment">
-                        <div class="profile-picture">
-                            <img src="${profilePictureSrc}" alt="Profile Picture">
+                const data = await response.json()
+                const commentId = data.comment_id
+            
+                console.log("New comment ID:", commentId);
+
+                
+                const fullComment = document.createElement("div");
+                fullComment.classList.add("subComment");
+
+                const profilePictureSrc = anonCheckbox2.checked ? "../assets/anon.jpg" : `${profilePic}`;
+
+                fullComment.innerHTML = `
+                    <div class="subComment" id="subComment${commentId}">
+                        <div class="comment" id="comment${commentId}">
+                            <div class="profile-picture" id="profilePic${commentId}">
+                                <img src="${profilePictureSrc}" alt="Profile Picture">
+                            </div>
+                            <div class="comment-content">
+                                <p>${commentInput.value}</p>
+                            </div>
                         </div>
-                        <div class="comment-content">
-                            <p>${commentInput.value}</p>
+                        <div class="commentInfo">
+                            <div></div>
+                            <div class="commentProperties" id="commentTimeStamp${commentId}">
+                                <p class="cmntInfo">${getCurrentTime()}</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="commentInfo">
-                        <div></div>
-                        <div class="commentProperties" id="commentTimeStamp">
-                            <p class="cmntInfo">${getCurrentTime()}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
+                `;
 
-            allCommentsContainer.appendChild(fullComment);
-            allCommentsContainer.appendChild(document.createElement("br"));
+                allCommentsContainer.appendChild(fullComment);
+                allCommentsContainer.appendChild(document.createElement("br"));
 
-            commentForm.reset();
-            commentPopup.style.display = "none";
-            mainBody.style.display = 'block';
-        } catch (error) {
-            console.error('Error:', error.message);
-            alert('An error occurred while saving the post.');
-        }
+                commentForm.reset();
+                commentPopup.style.display = 'none';
+                mainBody.style.display = 'block';
+
+            } catch (error) {
+                console.error('Error:', error.message);
+                alert('An error occurred while saving the comment.');
+            }
+        };
     }
 });
 
