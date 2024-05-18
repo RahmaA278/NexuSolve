@@ -86,8 +86,8 @@ button:hover {
 }
 
 @media (max-height: 49em) {
-    .container {
-        margin-top: var(--size-200);
+    .container > * {
+        margin-top: var(--size-500);
     }
     .logo p {
         font-size: var(--fs-900);
