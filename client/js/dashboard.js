@@ -341,7 +341,6 @@ allPostsContainer.addEventListener('click', async (e) => {
 
             try {
                 const response = await fetch('https://nexusolve-server.onrender.com/comments', options);
-
                 if (!response.ok) {
                     throw new Error('Failed to save comment to database');
                 }
@@ -393,5 +392,5 @@ allPostsContainer.addEventListener('click', async (e) => {
 
 function getCurrentTime() {
     const now = new Date();
-    return now.toLocaleString();
+    return now.toISOString();
 }
