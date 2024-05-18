@@ -28,12 +28,12 @@ regForm.addEventListener("submit", async (e) => {
 
     if (response.status == 201) {
         e.target.reset();
-        window.location.assign("./html/login.html");
+        window.location.assign("login.html");
     } else {
         alert(data.error);
     }
 })
 
 loginHere.addEventListener('click', () => {
-    window.location.assign("./html/login.html");
+    window.location.assign("./login.html");
 })
