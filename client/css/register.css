@@ -7,13 +7,13 @@ body {
 }
 
 .container > * {
-    margin-top: var(--size-600);
+    margin-top: var(--size-700);
 }
 
 /* header */
 
 .logo img {
-    width: 30%;
+    width: 35%;
 }
 
 .logo span {
@@ -34,7 +34,7 @@ footer {
 .background {
     text-align: center;
     color: var(--clr-neutral-100);
-    font-size: var(--fs-700);
+    font-size: var(--fs-750);
 }
 
 .inner {
@@ -48,7 +48,7 @@ footer {
     width: 100%;
     padding: var(--size-200);
     background: var(--clr-input-bg);
-    margin-bottom: 0.25rem;
+    margin-bottom: var(--size-200);
     border: transparent;
     border-radius: var(--size-200);
 }
@@ -76,7 +76,7 @@ footer {
 /* other */
 
 .login-here {
-    font-size: var(--fs-600);
+    font-size: var(--fs-650);
 }
 
 .login-link {
@@ -87,4 +87,26 @@ footer {
 
 .login-link:hover {
     color: var(--clr-accent-400);
+}
+
+@media (max-height: 49em) {
+    .container > * {
+        margin-top: var(--size-600);
+    }
+    
+    .logo img {
+        width: 30%;
+    }
+    
+    .background {
+        font-size: var(--fs-700);
+    }
+    
+    .regInput {
+        margin-bottom: var(--size-100);
+    }
+    
+    .login-here {
+        font-size: var(--fs-600);
+    }
 }
