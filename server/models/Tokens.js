@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
-const moment = require('moment'); 
+const { DateTime } = require('luxon');
 
 const db = require("../db/connect");
 
@@ -13,8 +13,7 @@ class Token {
 
     static async create(account_id) {
         const token = uuidv4();
-        const expirationTimestamp = new Date();
-        expirationTimestamp.setHours(expirationTimestamp.getHours() + 2); // 1 hour from now
+        const expirationTimestamp = DateTime.now().plus({ hours: 1 }).setZone('Europe/London');
         const response = await db.query("INSERT INTO tokens (account_id, token, expiration_timestamp) VALUES ($1, $2, $3) RETURNING token_id;", [account_id, token, expirationTimestamp]);
         const newId = response.rows[0].token_id;
         const newToken = await Token.getOneById(newId);
@@ -41,9 +40,8 @@ class Token {
     }
 
     static async deleteExpiredTokens() {
-        const currentTimestamp = moment().utcOffset('+01:00').format('YYYY-MM-DD HH:mm:ss');
-        const timezoneOffset = moment().format('Z').replace(':', '');
-        const formattedCurrentTimestamp = currentTimestamp + ' ' + timezoneOffset;
+        const currentTimestamp = DateTime.now().setZone('Europe/London');
+        const formattedCurrentTimestamp = currentTimestamp.toFormat('yyyy-MM-dd HH:mm:ss ZZZZ');
         const response = await db.query('DELETE FROM tokens WHERE expiration_timestamp <= $1', [formattedCurrentTimestamp]);
         
         if (response.rowCount === 0) {
