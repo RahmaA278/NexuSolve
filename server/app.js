@@ -8,6 +8,7 @@ const { S3Client, PutObjectCommand, GetObjectCommand, DeleteObjectCommand } = re
 const { getSignedUrl } = require('@aws-sdk/s3-request-presigner')
 const crypto = require('crypto')
 const sharp = require('sharp')
+const { DateTime } = require('luxon');
 
 const profileRoute = require("./routers/profiles")
 const postRoute = require("./routers/posts")
@@ -102,12 +103,11 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   const tokenData = await Token.getOneByToken(token);
   const id = tokenData.account_id
 
-  const expirationTimestamp = new Date();
-  expirationTimestamp.setHours(expirationTimestamp.getHours() + 24);
+  const expirationTimestamp = DateTime.now().plus({ days: 1 }).setZone('Europe/London');
 
   const data = {
     image_name: imageName,
-    image_url_expiration: expirationTimestamp.toISOString(),
+    image_url_expiration: expirationTimestamp,
   };
   const profile = await Profile.getOneById(id);
   const result = await profile.update(data);
