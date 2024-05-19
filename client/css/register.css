@@ -6,14 +6,10 @@ body {
     color: var(--clr-neutral-900);
 }
 
-.container > * {
-    margin-top: var(--size-700);
-}
-
 /* header */
 
 .logo img {
-    width: 35%;
+    width: calc(var(--body-h) / (100 / 15));
 }
 
 .logo span {
@@ -27,30 +23,39 @@ footer {
     text-align: center;
     color: var(--clr-neutral-100);
     font-size: var(--fs-600);
+    padding-top: var(--size-300);
 }
 
 /* register */
 
 .background {
+    height: 15%;
     text-align: center;
     color: var(--clr-neutral-100);
-    font-size: var(--fs-750);
+    font-size: var(--fs-800);
+    padding: var(--size-400) 0;
+}
+
+.regBox {
+    max-width: 45rem;
+    margin-inline: auto;
+    height: calc(100% - 15%);
 }
 
 .inner {
     background: var(--clr-box-bg);
     border: 1% solid var(--clr-box-border);
     border-radius: var(--size-200);
-    padding: var(--size-600);
+    padding: calc(var(--body-h) / (100 / 2.5));
 }
 
 .regInput {
     width: 100%;
-    padding: var(--size-200);
+    padding: calc(var(--body-h) / (100 / 1.5));
     background: var(--clr-input-bg);
-    margin-bottom: var(--size-200);
     border: transparent;
     border-radius: var(--size-200);
+    margin-bottom: calc(var(--body-h) / (100 / 1.5));
 }
 .regInput:focus { outline: none; }
 
@@ -58,7 +63,7 @@ footer {
 
 .reg-btn {
     width: 100%;
-    padding: var(--size-200);
+    padding: calc(var(--body-h) / (100 / 1.5));
     background: var(--clr-accent-400);
     font-size: var(--fs-650);
     font-weight: var(--fw-bold);
@@ -75,6 +80,8 @@ footer {
 
 /* other */
 
+.inner, .form { gap: calc(var(--body-h) / (100 / 2)) }
+
 .login-here {
     font-size: var(--fs-650);
 }
@@ -89,21 +96,73 @@ footer {
     color: var(--clr-accent-400);
 }
 
-@media (max-height: 49em) {
-    .container > * {
-        margin-top: var(--size-600);
+@media (min-width: 33em) {
+    .regBox {
+        height: calc(100% - 9.5%);
     }
-    
-    .logo img {
-        width: 30%;
+}
+
+@media (min-width: 57em) {
+    footer {
+        font-size: var(--fs-650);
+    }
+
+    .register > .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .background {
-        font-size: var(--fs-700);
+        padding-right: 1rem;
+        text-align: right;
+        font-size: var(--fs-1000);
+        max-width: 50%;
+        height: 100%;
+    }
+
+    .regBox {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .inner {
+        height: 100%;
+        border-radius: var(--size-300);
     }
     
     .regInput {
-        margin-bottom: var(--size-100);
+        padding: var(--size-300);
+        /* margin-bottom: var(--size-400); */
+    }
+}
+
+@media (max-height: 45em) {
+    .logo img {
+        width: calc(var(--body-h) / (100 / 10));
+    }
+
+    .background {
+        font-size: var(--fs-700);
+        height: 10%;
+    }
+
+    .regBox {
+        height: calc(100% - 10%);
+    }
+
+    .inner, .form {
+        gap: calc(var(--body-h) / (100 / 2))
+    }
+    
+    .regInput {
+        margin-bottom: calc(var(--body-h) / (100 / 0.75));
+        padding: calc(var(--body-h) / (100 / 1.25));
+    }
+
+    .reg-btn {
+        padding: calc(var(--body-h) / (100 / 1.25));
+        font-size: var(--fs-600);
     }
     
     .login-here {

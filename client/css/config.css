@@ -49,7 +49,9 @@
     --size-700: 3rem;
     --size-800: 4rem;
     --size-900: 5rem;
-  
+
+    --body-h: 100dvh;
+
     /* Style for smallest screen size */
   
     --fs-body: var(--fs-400);
@@ -192,6 +194,13 @@
     align-items: center;
     justify-content: center;
   }
+  
+  .flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   .flex-column-center-1rem {
     display: flex;
@@ -320,6 +329,17 @@
   .mx-auto { margin-inline: auto; }
 
   .width-full { width: 100% }
+  .width-auto { width: auto; }
+
+  .body-h { height: var(--body-h); }
+  .height-main { height: 42rem; }
+  .height-auto { height: auto; }
+  .height-full { height: 100%; }
+  .height-15 { height: 15%; }
+  .height-75 { height: 75%; }
+  .height-5 { height: 5%; }
+
+  .section-margin-top { margin-top: calc(var(--body-h) / (100 / 2.5)); }
   
   .display-sm-none {
     display: none;
