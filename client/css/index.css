@@ -1,105 +1,142 @@
-  /* GENERAL STYLING */
-
-  body {
-    background: var(--clr-primary-400);
-    font-family: var(--ff-body);
-    color: var(--clr-neutral-900);
-}
-
-.container > * {
-    margin-top: var(--size-600);
-}
-
-/* logo */
-
-.logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo img {
-    width: 25%;
-}
-
-.logo p {
-    margin-top: calc(var(--size-100)*-1);
-    color: var(--clr-neutral-100);
-    font-size: var(--fs-1000);
-}
-
-/* footer */
-
-footer {
-    text-align: center;
-    color: var(--clr-neutral-100);
-    font-size: var(--fs-700);
-}
-
-/* content */
-
-.intro {
-    color:var(--clr-neutral-900);
-    text-align: center;
-    font-size: var(--fs-800);
-}
-
 /* buttons */
 
-.btns {
-    display: flex;
-    flex-direction: row;
-    padding: var(--size-100);
-    gap: var(--size-600);
+.buttons {
+    gap: calc(var(--container-height) / (100 / 1.5));
 }
 
-button {
-    cursor: pointer;
-    width: 90%;
-    padding: var(--size-300);
+.button {
+    width: 100%;
+    padding: calc(var(--container-height) / (100 / 1));
     background: var(--clr-accent-400);
-    color: var(--clr-neutral-900);
-    font-size: var(--fs-800);
+    font-size: var(--fs-650);
     font-weight: var(--fw-bold);
     border: none;
     border-radius: var(--size-200);
+    cursor: pointer;
 }
 
-button:hover {
-    background: var(--clr-primary-400);
-    font-weight: var(--fw-bold);
+.button:hover {
+    background: var(--clr-primary-600);
+    font-weight: bolder;
     color: var(--clr-accent-400);
 }
 
-@media (max-width: 36em) {    
-    button {
-        padding: var(--size-100);
-        font-size: var(--fs-800);
-    }
-}
-
-@media (max-width: 34em) {
-    .intro {
+@media (min-width: 33em) {
+    .text {
         font-size: var(--fs-750);
     }
 }
 
-@media (max-height: 49em) {
-    .container > * {
-        margin-top: var(--size-500);
+@media (min-width: 41em) {
+    .text {
+        font-size: var(--fs-800);
+   }
+}
+
+@media (min-width: 50em) {
+    .main > .container {
+        width: 60%;
+        max-width: 60%;
     }
-    .logo p {
-        font-size: var(--fs-900);
+
+    .text {
+        font-size: var(--fs-720);
+        padding: calc(var(--container-height) / (100 / 2.5)) 1.5rem;
     }
+
     .intro {
-        font-size: var(--fs-700);
+        height: 60%;
     }
-    button {
-        padding: var(--size-100);
-        font-size: var(--fs-700);
+
+    .buttons {
+        height: 40%;
+        gap: calc(var(--container-height) / (100 / 3));
     }
-    footer {
-        font-size: var(--fs-600);
+    
+    .button {
+        font-size: var(--fs-760);
+    }
+}
+
+@media (min-width: 56em) {
+    .text {
+        font-size: var(--fs-740);
+    }
+}
+
+@media (min-width: 61em) {
+    .text {
+        font-size: var(--fs-760);
+    }
+}
+
+@media (min-width: 76em) {
+    .text {
+        font-size: var(--fs-800);
+    }
+}
+
+@media (min-width: 87em) {
+    .text {
+        font-size: var(--fs-825);
+    }
+}
+
+@media (min-width: 101em) {
+    .text {
+        font-size: var(--fs-830);
+    }
+}
+
+@media (min-width: 105em) {
+    .text {
+        font-size: var(--fs-840);
+    }
+}
+
+@media (min-width: 109em) {
+    .text {
+        font-size: var(--fs-850);
+    }
+}
+
+@media (max-height: 52em) {
+    .intro {
+        height: 65%;
+    }
+
+    .buttons {
+        height: 35%;
+        gap: calc(var(--container-height) / (100 / 2));
+    }
+    
+    .button {
+        font-size: var(--fs-620);
+    }
+}
+
+@media (max-height: 52em) and (min-width: 28em) {
+    .main > .container {
+        max-width: var(--max-width-s);
+    }
+    .text {
+        font-size: var(--fs-640);
+    }
+}
+
+@media (max-height: 52em) and (min-width: 34em) {
+    .text {
+        font-size: var(--fs-660);
+    }
+}
+
+@media (max-height: 52em) and (min-width: 55em) {
+    .main > .container {
+        width: 60%;
+        max-width: 60%;
+    }
+    
+    .text {
+        font-size: var(--fs-680);
     }
 }

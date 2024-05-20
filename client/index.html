@@ -6,35 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexuSolve</title>
     <link rel="stylesheet" href="./css/config.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <script src="./js/index.js" defer></script>
+    <link rel="stylesheet" href="./css/register.css">
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img srcset="./assets/logo.png"  alt= "logo">
-                <p>NexuSolve</p>
+<body class="bg-primary ff-body fc-black">
+    <div class="body | body-h">
+        <header class="header | height-20">
+            <div class="container | height-100 flex-column-center">
+                <img src="../assets/logo.png" alt="logo" class="logo-img | height-50">
+                <p class="logo-name | fc-white fs-825">NexuSolve</p>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <section class="content">
-        <div class="container">
-            <div class="intro">
-                <p>Welcome to NexuSolve, where meaningful conversations spark positive change within communities. Our platform empowers members to openly discuss and collaborate on addressing the challenges they face. Join us in fostering constructive dialogue and collectively finding solutions to create a better tomorrow for all.</p>
+        <section class="main | height-70 section-margin-top-l flex-column-center">
+            <div class="container | flex-column-center height-100 max-width">
+                <div class="intro | height-70 width-100 flex-row-center">
+                    <p class="text | fc-black fs-700 section-padding-l text-center">
+                        Welcome to NexuSolve, where meaningful conversations spark positive change within communities. Our platform empowers members to openly discuss and collaborate on addressing the challenges they face. Join us in fostering constructive dialogue and collectively finding solutions to create a better tomorrow for all.
+                    </p>
+                </div>
+                <div class="buttons | height-30 width-50 flex-column-center">
+                    <button class="reg button">Get Started</button>
+                    <button class="login button">Login</button>
+                    <button class="dashboard button">Dashboard</button>
+                </div>
             </div>
-            <div class = "btns">
-                <button id="regHere">GET STARTED</button>
-                <button id="loginHere">LOGIN</button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 NexuSolve. All rights reserved.</p>
-        </div>
-    </footer>
+        <footer class="footer | height-5 section-margin-top-l">
+            <div class="container | height-100 flex-row-center">
+                <p class="copyright | fc-white">&copy; 2024 NexuSolve. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

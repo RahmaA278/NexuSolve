@@ -1,69 +1,27 @@
-/* GENERAL STYLING */
+/* form */
 
-body {
-    background: var(--clr-primary-400);
-    font-family: var(--ff-body);
-    color: var(--clr-neutral-900);
-}
-
-/* header */
-
-.logo img {
-    width: calc(var(--body-h) / (100 / 15));
-}
-
-.logo span {
-    color: var(--clr-neutral-100);
-    font-size: var(--fs-900);
-}
-
-/* footer */
-
-footer {
-    text-align: center;
-    color: var(--clr-neutral-100);
-    font-size: var(--fs-600);
-    padding-top: var(--size-300);
-}
-
-/* register */
-
-.background {
-    height: 15%;
-    text-align: center;
-    color: var(--clr-neutral-100);
-    font-size: var(--fs-800);
-    padding: var(--size-400) 0;
-}
-
-.regBox {
-    max-width: 45rem;
-    margin-inline: auto;
-    height: calc(100% - 15%);
-}
-
-.inner {
+.form {
+    gap: calc(var(--container-height) / (100 / 3));
     background: var(--clr-box-bg);
     border: 1% solid var(--clr-box-border);
     border-radius: var(--size-200);
-    padding: calc(var(--body-h) / (100 / 2.5));
+    padding: calc(var(--container-height) / (100 / 2.5));
 }
 
-.regInput {
+.reg-input {
     width: 100%;
-    padding: calc(var(--body-h) / (100 / 1.5));
+    padding: calc(var(--container-height) / (100 / 1.5));
     background: var(--clr-input-bg);
     border: transparent;
     border-radius: var(--size-200);
-    margin-bottom: calc(var(--body-h) / (100 / 1.5));
 }
-.regInput:focus { outline: none; }
+.reg-input:focus { outline: none; }
 
 /* button */
 
 .reg-btn {
     width: 100%;
-    padding: calc(var(--body-h) / (100 / 1.5));
+    padding: calc(var(--container-height) / (100 / 1.5));
     background: var(--clr-accent-400);
     font-size: var(--fs-650);
     font-weight: var(--fw-bold);
@@ -72,15 +30,13 @@ footer {
     cursor: pointer;
 }
 
-#regBtn:hover {
+.reg-btn:hover {
     background: var(--clr-primary-600);
     font-weight: bolder;
     color: var(--clr-accent-400);
 }
 
 /* other */
-
-.inner, .form { gap: calc(var(--body-h) / (100 / 2)) }
 
 .login-here {
     font-size: var(--fs-650);
@@ -96,76 +52,115 @@ footer {
     color: var(--clr-accent-400);
 }
 
-@media (min-width: 33em) {
-    .regBox {
-        height: calc(100% - 9.5%);
+@media (min-width: 38em) {
+    .text { font-size: var(--fs-800); }
+}
+
+@media (min-width: 77em) {
+    .main {
+        flex-direction: row;
+    }
+
+    .main > .container {
+        flex-direction: row;
+        width: 75%;
+        max-width: 75%;
+    }
+
+    .cta {
+        height: 100%;
+        width: 50%;
+    }
+
+    .text {
+        font-size: var(--fs-950);
+        text-align: right;
+    }
+
+    .register {
+        height: 100%;
+        width: 50%;
+    }
+
+    .form {
+        gap: calc(var(--container-height) / (100 / 5));
     }
 }
 
-@media (min-width: 57em) {
-    footer {
+@media (min-width: 90em) {
+    .text {
+        font-size: var(--fs-1000);
+    }
+}
+
+@media (max-height: 46em) {
+    .text {
         font-size: var(--fs-650);
     }
-
-    .register > .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .form {
+        gap: calc(var(--container-height) / (100 / 3.5));
+        padding: calc(var(--container-height) / (100 / 1.5));
     }
-    
-    .background {
-        padding-right: 1rem;
-        text-align: right;
-        font-size: var(--fs-1000);
-        max-width: 50%;
-        height: 100%;
+    .reg-input {
+        padding: calc(var(--container-height) / (100 / 0.5));
     }
-
-    .regBox {
-        height: 100%;
-        width: 100%;
+    .reg-btn {
+        padding: calc(var(--container-height) / (100 / 0.5));
+        font-size: var(--fs-600);
     }
-    
-    .inner {
-        height: 100%;
-        border-radius: var(--size-300);
-    }
-    
-    .regInput {
-        padding: var(--size-300);
-        /* margin-bottom: var(--size-400); */
+    .login-here {
+        font-size: var(--fs-600);
     }
 }
 
-@media (max-height: 45em) {
-    .logo img {
-        width: calc(var(--body-h) / (100 / 10));
+@media (max-height: 46em) and (min-width: 28em) {
+    .main > .container {
+        max-width: var(--max-width-s);
     }
-
-    .background {
+    .text {
         font-size: var(--fs-700);
-        height: 10%;
+    }
+}
+
+@media (max-height: 46em) and (min-width: 37em) {
+    .text {
+        font-size: var(--fs-760);
+    }
+}
+
+@media (max-height: 46em) and (min-width: 55em) {
+    .main {
+        flex-direction: row;
     }
 
-    .regBox {
-        height: calc(100% - 10%);
+    .main > .container {
+        flex-direction: row;
+        width: 75%;
+        max-width: 75%;
     }
 
-    .inner, .form {
-        gap: calc(var(--body-h) / (100 / 2))
-    }
-    
-    .regInput {
-        margin-bottom: calc(var(--body-h) / (100 / 0.75));
-        padding: calc(var(--body-h) / (100 / 1.25));
+    .cta {
+        height: 100%;
+        width: 50%;
     }
 
-    .reg-btn {
-        padding: calc(var(--body-h) / (100 / 1.25));
-        font-size: var(--fs-600);
+    .text {
+        font-size: var(--fs-900);
+        text-align: right;
     }
-    
-    .login-here {
-        font-size: var(--fs-600);
+
+    .register {
+        height: 100%;
+        width: 50%;
+    }
+
+    .form {
+        gap: calc(var(--container-height) / (100 / 5));
+    }
+}
+
+@media (max-height: 46em) and (min-width: 74em) {
+    .text {
+        font-size: var(--fs-950);
     }
 }

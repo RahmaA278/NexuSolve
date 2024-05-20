@@ -7,53 +7,40 @@
     <title>NexuSolve</title>
     <link rel="stylesheet" href="../css/config.css">
     <link rel="stylesheet" href="../css/register.css">
-    <script src="../js/register.js" defer></script>
 </head>
-<body>
+<body class="bg-primary ff-body fc-black">
     <div class="body | body-h">
-        <header class="height-15">
-            <div class="container">
-                <div class="logo | flex-row-center">
-                    <img class ="Logo"srcset="../assets/logo.png"  alt= "logo">
-                    <span>NexuSolve</span>
-                </div>
+        <header class="header | height-15">
+            <div class="container | height-100 flex-row-center">
+                <img src="../assets/logo.png" alt="logo" class="logo-img | height-100">
+                <p class="logo-name | fc-white fs-900">NexuSolve</p>
             </div>
         </header>
-    
-        <section class="register | height-75 section-margin-top">
-            <div class = "container | height-full">
-                <div class="background | flex-column-center">
-                    <h1>Get connected with the community</h1>
+
+        <section class="main | height-75 section-margin-top-l flex-column-center">
+            <div class="container | flex-column-center height-100 max-width">
+                <div class="cta | height-15 width-100 flex-row-center">
+                    <p class="text | fc-white fs-700 section-padding-l text-center">Get connected with the community</p>
                 </div>
-                <div class="regBox">
-                    <div class="inner | flex-column-center height-full">
-                        <form class="form | flex-column-center width-full" id="registerForm">
-                            <div class="form-input | width-full">
-                                <input type="text" class="regInput" id="firstName" name="firstName" placeholder="Enter your first name here" required><br>
-                                <br>
-                                <input type="text" class="regInput" id="lastName" name="lastName" placeholder="Enter your last name here" required><br>
-                                <br>
-                                <input type="text" class="regInput" id="displayName" name="displayName" placeholder="Enter your display name here" required><br>
-                                <br>
-                                <input type="email" class="regInput" id="regEmail" name="regEmail" placeholder="Enter your email here" required><br>
-                                <br>
-                                <input type="password" class="regInput" id="regPassword" name="password" placeholder="Enter password here" required><br>
-                            </div>
-                            <div class="form-button | width-full">
-                            <input class="reg-btn" id="regBtn" type="submit" value="Register">
-                            </div>
-                        </form>
-                        <p class="login-here">Already registered? <a class="login-link" id="loginHere" href="#">Login here</a></p>
-                    </div>
+                <div class="register | height-85 width-100 flex-column-center">
+                    <form class="form | height-100 width-100 flex-column-center">
+                        <input type="text" class="reg-input" id="first-name" name="first-name" placeholder="Enter your first name here" required>
+                        <input type="text" class="reg-input" id="last-name" name="last-name" placeholder="Enter your last name here" required>
+                        <input type="text" class="reg-input" id="display-name" name="display-name" placeholder="Enter your display name here" required>
+                        <input type="email" class="reg-input" id="reg-email" name="reg-email" placeholder="Enter your email here" required>
+                        <input type="password" class="reg-input" id="reg-password" name="password" placeholder="Enter password here" required>
+                        <input type="submit" class="reg-btn" value="Register">
+                        <p class="login-here | fc-black">Already registered? <a class="login-link" id="login-here" href="#">Login here</a></p>
+                    </form>
                 </div>
             </div>
         </section>
-                
-        <footer class="height-5 section-margin-top">
-            <div class="container">
-                <p>&copy; 2024 NexuSolve. All rights reserved.</p>
+
+        <footer class="footer | height-5 section-margin-top-l">
+            <div class="container | height-100 flex-row-center">
+                <p class="copyright | fc-white">&copy; 2024 NexuSolve. All rights reserved.</p>
             </div>
         </footer>
-    </div>    
+    </div>
 </body>
 </html>
