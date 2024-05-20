@@ -105,6 +105,10 @@
         height: 65%;
     }
 
+    .text {
+        font-size: var(--fs-660);
+    }
+
     .buttons {
         height: 35%;
         gap: calc(var(--container-height) / (100 / 2));
