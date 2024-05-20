@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexuSolve</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/config.css">
+    <link rel="stylesheet" href="../css/check.css">
+    <script src="../js/check.js" defer></script>
+</head>
+<body class="bg-primary ff-body fc-black">
+    <div class="body | body-h">
+        <nav class="nav">
+            <div class="container | flow-row-space">
+                <div class="logo | flex-row-center">
+                    <img src="../assets/logo.png" alt="logo" class="logo-img | width-40">
+                    <p class="logo-name | fc-white fs-750">NexuSolve</p>
+                </div>
+                <a class="menu | fc-white fs-750 menu-padding no-a-style" href="javascript:void(0);" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="primary-nav | height-100 flex-row-center l-grey" id="primary-nav">
+                    <ul class="page-list | height-75 flex-row-center no-li-style fs-400 fw-bold">
+                        <li class="page-li"><a class="page-link | no-a-style fc-white" id="nav-logout" href="#">Log Out</a></li>
+                        <li class="page-li"><a class="page-link | no-a-style fc-white" id="nav-about" href="#">About</a></li>
+                        <li class="page-li"><a class="page-link | no-a-style fc-white" id="nav-home" href="#">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="popup-nav" id="popup-nav">
+            <div class="container | bg-faded-blue">
+                <ul class="page-list | height-75 flex-column-center no-li-style fs-700 fw-bold">
+                    <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="nav-logout" href="#">Log Out</a></li>
+                    <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="nav-about" href="#">About</a></li>
+                    <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="nav-home" href="#">Home</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="main | section-margin-top-l flex-column-center" id="main">
+            <div class="container | height-100 flex-column-center max-width">
+                <div class="profile | width-100 flex-column-center">
+                    <p class="text | fc-black fs-850 section-padding-l text-center">Your Account</p>
+                    <button class="profile-pic | circle" id="update-pic">
+                        <img class="circle" id="profile-img" src="../assets/anon.jpg" alt="Profile Picture">
+                    </button>
+        
+                    <div class="welcome | fc-black fs-750 section-padding-l">
+                        <p id="welcome-msg">Welcome, Anonymous User</p>
+                    </div>
+                </div>
+                <div class="info | width-100 grid-account-info">
+                    <div class="grid-item1">Account Number</div>
+                    <div class="grid-item2" id="account-number">123456</div>
+                    <div class="grid-item1">First Name</div>
+                    <div class="grid-item2" id="first-name">Anonymous</div>
+                    <div class="grid-item1">Last Name</div>
+                    <div class="grid-item2" id="last-name">User</div>
+                    <div class="grid-item1">Display Name</div>
+                    <div class="grid-item2" id="display-name">Anonymous User</div>
+                    <div class="grid-item1">Email Address</div>
+                    <div class="grid-item2" id="email">u.anon@gmail.com</div>
+                </div>
+            </div>
+            <div class="container | padding-top-m">
+                <div class="buttons | flex-column-center">
+                    <button class ="button | clr-button1 fc-black fs-650 fw-bold" id = "button1" value="Update Display Name">Update Display Name</button>
+                    <button class ="button | clr-button2 fc-black fs-650 fw-bold" id = "button2" value="Update Email">Update Email</button>
+                    <button class ="button | clr-button3 fc-black fs-650 fw-bold" id = "button3" value="Update Profile Picture">Remove Profile Picture</button>
+                    <button class ="button | clr-button4 fc-black fs-650 fw-bold" id = "button4" value="Change Password">Change Password</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer | height-5 section-margin-top-l">
+            <div class="container | height-100 flex-row-center">
+                <p class="copyright | fc-white">&copy; 2024 NexuSolve. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
