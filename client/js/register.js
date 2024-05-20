@@ -1,5 +1,5 @@
-const regForm = document.getElementById("registerForm");
-const loginHere = document.getElementById("loginHere");
+const regForm = document.getElementById("reg-form");
+const loginHere = document.getElementById("login-here");
 
 regForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -13,10 +13,10 @@ regForm.addEventListener("submit", async (e) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            first_name: form.get("firstName"),
-            last_name: form.get("lastName"),
-            display_name: form.get("displayName"),
-            email: form.get("regEmail"),
+            first_name: form.get("first-name"),
+            last_name: form.get("last-name"),
+            display_name: form.get("display-name"),
+            email: form.get("reg-email"),
             image_name: form.get("imageName"),
             image_url: form.get("imageUrl"),
             password: form.get("password")
