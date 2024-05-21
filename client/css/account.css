@@ -56,10 +56,10 @@
     padding: var(--size-500) var(--size-400);
 }
 
-#button1:hover, #button2:hover, #button3:hover, #button4:hover {
+.button:hover {
     color: var(--clr-primary-400);
     transform: scale(1.1);
-    box-shadow: 0 0 var(--size-450) rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 var(--size-450) var(--clr-faded-black);
 }
 
 /* Popups */
