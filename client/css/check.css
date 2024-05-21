@@ -21,6 +21,10 @@
 
 /* account info */
 
+.profile-pic {
+    cursor: pointer;
+}
+
 .grid-item1 {
     border: 1px solid var(--clr-neutral-900);
     padding: var(--size-250);
@@ -56,6 +60,63 @@
     color: var(--clr-primary-400);
     transform: scale(1.1);
     box-shadow: 0 0 var(--size-450) rgba(0, 0, 0, 0.3);
+}
+
+/* Popups */
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 48.5%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(0,197,224, 0.2);
+    border-radius: 1rem;
+    box-shadow: 0 0 1.25rem var(--clr-faded-black);
+    z-index: 1000;   
+}
+
+.close {
+    cursor: pointer;
+    padding: 0;
+    color: var(--clr-primary-900);
+    font-size:var(--fs-900);
+    margin-left: 5%;
+}
+
+.image-path {
+    padding: var(--size-250);
+    border: none;
+    border-radius: var(--size-100);
+}
+
+.popup-btn {
+    cursor: pointer;
+    width: 70%;
+    padding: var(--size-200);
+    background: var(--clr-accent-400);
+    border: none;
+    border-radius: var(--size-200);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-600);
+}
+
+.popup-btn:hover {
+    background: var(--clr-primary-600);
+    font-weight: var(--fw-bolder);
+    color: var(--clr-accent-400);
+}
+
+.popup-input {
+    width: 70%;
+    background: var(--clr-primary-450);
+    padding: var(--size-250);
+    border: none;
+    border-radius: var(--size-200);
+}
+
+.popup-input:focus {
+    outline: none;
 }
 
 @media (min-width: 36em) {
@@ -103,7 +164,7 @@
     }
 
     .grid-item1, .grid-item2 {
-        font-size: var(--fs-750);
+        font-size: var(--fs-700);
     }
 
     .buttons {

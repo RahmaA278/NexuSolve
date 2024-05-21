@@ -10,8 +10,10 @@
     --clr-accent-100: hsl(40, 100%, 96%);
   
     --clr-primary-400: hsl(166, 100%, 50%);
+    --clr-primary-450: hsl(166, 100%, 45%);
     --clr-primary-500: hsl(190, 100%, 43.9%);
     --clr-primary-600: hsl(190, 100%, 43.9%);
+    --clr-primary-900: hsl(187, 100%, 25%);
   
     --clr-neutral-100: hsl(0, 0%, 98%);
     --clr-neutral-200: hsl(0, 0%, 97%);
@@ -21,6 +23,8 @@
     --clr-box-bg: hsla(190, 100%, 43.9%, 0.5);
     --clr-box-border: hsla(190, 100%, 43.9%, 0.3);
     --clr-input-bg: hsla(0, 0%, 95%, 0.6);
+    --clr-popup-bg: hsla(166, 100%, 50%, 0.4);
+    --clr-faded-black: hsla(233, 12%, 13%, 0.3);
 
     --clr-button1: hsl(0, 70%, 83%);
     --clr-button2: hsl(127, 73%, 88%);
@@ -95,7 +99,9 @@
     --size-700: 3rem;
     --size-725: 3.25rem;
     --size-750: 3.5rem;
+    --size-775: 3.75rem;
     --size-800: 4rem;
+    --size-825: 4.25rem;
     --size-900: 5rem;
     --size-925: 5.5rem;
     --size-950: 6rem;
@@ -311,13 +317,15 @@
 
   /* width */
 
-  .max-width { max-width: 45rem; }
+  .max-width { max-width: var(--max-width); }
+  .max-width-s { max-width: var(--max-width-s); }
 
   .width-1 { width: 1rem; }
   .width-2 { width: 2rem; }
   
   .width-auto { width: auto; }
   .width-100 { width: 100%; }
+  .width-90 { width: 90%; }
   .width-75 { width: 75%; }
   .width-60 { width: 60%; }
   .width-50 { width: 50%; }
@@ -331,6 +339,8 @@
   .section-margin-top-m { margin-top: calc(var(--container-height) / (100 / 1.5)); }
   .section-margin-top-s { margin-top: calc(var(--container-height) / (100 / 1)); }
 
+  .popup-btn-margin { margin-bottom: var(--size-800); }
+
   /* padding */
 
   .section-padding-l { padding: calc(var(--container-height) / (100 / 2.5)) 1.5rem; }
@@ -342,6 +352,12 @@
 
   .menu-padding { padding: var(--size-300) var(--size-400); }
 
+  /* flex gaps */
+
+  .gap-400 { gap: var(--size-400); }
+  .gap-500 { gap: var(--size-500); }
+  .gap-600 { gap: var(--size-600); }
+
   /* borders */
 
   .circle { border-radius: 50%; }
@@ -352,6 +368,7 @@
   .bg-none { background: none; }
   
   .bg-faded-blue { background: var(--clr-box-border); }
+  .bg-popups { background: var(--clr-popup-bg); }
   
   .l-blue { background: lightblue; }
   .yellow { background: yellow; }

@@ -18,7 +18,7 @@
                     <img src="../assets/logo.png" alt="logo" class="logo-img | height-100">
                     <p class="logo-name | fc-white fs-750">NexuSolve</p>
                 </div>
-                <a class="menu | fc-white fs-750 menu-padding no-a-style" href="javascript:void(0);" onclick="myFunction()">
+                <a class="menu | fc-white fs-750 menu-padding no-a-style" href="javascript:void(0);" onclick="toggleMenu()">
                     <i class="fa fa-bars"></i>
                 </a>
                 <div class="primary-nav | height-100 flex-row-center" id="primary-nav">
@@ -38,6 +38,47 @@
                     <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="nav-about" href="#">About</a></li>
                     <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="nav-home" href="#">Home</a></li>
                 </ul>
+            </div>
+        </section>
+
+        <section class="popups">
+            <div class="container | max-width grey">
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup1">
+                    <span class="close" onclick="closePopup1()">&times;</span>
+                    <form class="flex-column-center gap-400" id="display-pic">
+                        <input type="file" class="image-path | width-60 fc-black" id="image-path" name="imagePath" required>
+                        <input class="popup-btn | popup-btn-margin" type="submit" value="UPLOAD">
+                    </form>
+                </div>
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup2">
+                    <span class="close" onclick="closePopup2()">&times;</span>
+                    <form class="flex-column-center gap-500" id="update-display-name">
+                        <input type="text" class="popup-input" name="displayName" placeholder="Enter your display name here" required>
+                        <input class="popup-btn | popup-btn-margin" type="submit" value="SUBMIT">
+                    </form>
+                </div>
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup3">
+                    <span class="close" onclick="closePopup3()">&times;</span>
+                    <form class="flex-column-center gap-500" id="update-email">
+                        <input type="email" class="popup-input" name="email" placeholder="Enter your email here" required>
+                        <input class="popup-btn | popup-btn-margin" type="submit" value="SUBMIT">
+                    </form>
+                </div>
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup4">
+                    <span class="close" onclick="closePopup4()">&times;</span>
+                    <div class="flex-column-center gap-400">
+                        <p class="confirm | fs-650 fw-bolder text-center">Are you sure you want to remove your profile picture?</p>
+                        <button class="popup-btn | popup-btn-margin" id="remove-pic-btn">CONFIRM DELETION</button>
+                    </div>
+                </div>
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup5">
+                    <span class="close" onclick="closePopup5()">&times;</span>
+                    <form class="flex-column-center gap-500" id="update-password">
+                        <input type="password" class="popup-input" name="oldPassword" placeholder="Enter current password here" required>
+                        <input type="password" class="popup-input" name="password" placeholder="Enter new password here" required>
+                        <input class="popup-btn | popup-btn-margin" type="submit" value="SUBMIT">
+                    </form>
+                </div>
             </div>
         </section>
 
