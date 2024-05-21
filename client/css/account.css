@@ -1,323 +1,264 @@
-@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Courgette&family=Kurale&display=swap');
+/* navigation */
 
-/* Background */
-html, body {
-    height: 100%;
-    margin: 0;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
+.primary-nav {
+    display: none;
 }
 
-body {
-    background-size: cover;
-    background: white no-repeat;
-    font-family: 'Kurale';
+.popup-nav {
+    display: none;
 }
 
-#mainBody {
-    margin-top: -20px;
-    margin-bottom: -20px;
-}
-
-/* Nav bar */
-nav {
-    background: rgba(0, 255, 195, 0.7);
-    color: #fff;
-}
-
-#toPages {
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    font-weight: bold;
-}
-
-.nav1 {
-    float: right;
+.page-link {
     display: block;
-    color: #fff;
-    padding: 12px 16px;
-    font-size: 21px;
-    text-decoration: none;
-}
-
-.nav1:hover {
-    background-color: #fff;
-    color: #1d7358;
-}
-
-#logo {
-    position: relative;
-    display: flex;
-    align-items: center;
-    float: left;
-    color: #fff;
-    width: 30%;
-    font-weight: bolder;
-    font-size: 30px;
-    padding: 5px 16px;
-}
-
-#logo img {
-    width: 60px;
-    margin-right: 10px;
-}
-
-#logo span {
-    color: rgb(243, 243, 243);
-}
-
-/* Footer */
-
-footer {
-    margin-top: auto;
-    padding: 1px;
-    background: rgba(0, 255, 195, 0.7);
-    color: #fff;
     text-align: center;
-    font-size: 18px;
-    font-weight: bold;
+    padding: var(--size-300) var(--size-400);
 }
 
-/* Header */
-
-h1 {
-    color: #26201d;
-    font-weight: bolder;
-    font-size: xx-large;
-    text-align: center;
-    padding-top: 4px;
-    padding-left: 4px; 
+.page-link:hover {
+    background: var(--clr-neutral-100);
+    color: var(--clr-primary-400);
 }
 
-/* Accounts page */
+/* account info */
 
-.accountBox1, .accountBox2 {
-    display: inline-block;
-    margin-left: 10%;
-}
-
-/* Accounts Box 1 */
-
-.accountBox1 {
-    margin-left: 20%;
-    margin-top:3%;
-}
-
-.profilePicture {
-    margin: auto;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background: transparent;
-    border: transparent;
-    border-radius: 50%;
+.profile-pic {
     cursor: pointer;
 }
 
-.profilePicture img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-}
-
-.welcome p {
-    color: #26201d;
-    font-weight: bolder;
-    font-size: 40px;
-    text-align: center;
-    margin-top: -15px;
-    margin-bottom: 0px;
-    padding: 4px;
-}
-
-.welcome {
-    margin: auto;
-    margin-top: 20px;
-    top: 73%; left: 19%; 
-}
-
-/* Account Box 2 */
-
-.accountBox2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    width: 60%;
-    position: absolute;
-    top: 41%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-  }
-
-/* Style for each grid item */
 .grid-item1 {
-    border-right: 1px solid #26201d;
-    padding: 10px;
-    padding-right: 30px;
+    border: 1px solid var(--clr-neutral-900);
+    padding: var(--size-250);
+    padding-right: var(--size-550);
     text-align: right;
-    font-weight: bold;
-    font-size: 25px;
-}
-
-.grid-item1:last-child {
-    border-right: none;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-600);
 }
 
 .grid-item2 {
-    padding: 10px;
-    padding-left: 0px;
-    text-align: left;
-    font-size: 25px;
+    border: 1px solid var(--clr-neutral-900);
+    padding: var(--size-250);
+    padding-left: 0;
+    text-align: center;
+    font-size: var(--fs-650);
 }
 
-/* Buttons */
+/* option buttons */
 
-#button1 {
-    position: absolute;
-    background: #F2B4B4;
-    border-radius: 17%;
-    border-color: #F2B4B4;
-    color:#262016;
-    font-family: 'Kurale';
-    font-size: 20px;
-    font-weight: bold;
-    border: 0px ;
-    top: 75%; left: 5%; 
-    height: 13%;
-    width: 13%;
+.buttons {
+    gap: var(--size-300);
+}
+
+.button {
     cursor: pointer; 
-    transition-duration: 0.4s;
-}
-
-#button2 {
-    position: absolute;
-    background: #CCF7D1;
+    width: 90%;
     border-radius: 17%;
-    border-color: #CCF7D1;
-    color:#262016;
-    font-family: 'Kurale';
-    font-size: 20px;
-    font-weight: bold;
-    border: 0px ;
-    top: 75%; left: 30%; 
-    height: 13%;
-    width: 13%;
-    cursor: pointer;
-    transition-duration: 0.4s;
-}
-
-#button3 {
-    position: absolute;
-    background: #FFF6AB;
-    border-radius: 17%;
-    border-color: #FFF6AB;
-    color:#262016;
-    font-family: 'Kurale';
-    font-size: 20px;
-    font-weight: bold;
-    border: 0px ;
-    top: 75%; left: 56%; 
-    height: 13%;
-    width: 13%;
-    cursor: pointer;
-    transition-duration: 0.4s;
-}
-
-#button4 {
-    position: absolute;
-    background: #7FBCCE;
-    border-radius: 17%;
-    border-color: #7FBCCE;
-    color:#262016;
-    font-family: 'Kurale';
-    font-size: 20px;
-    font-weight: bold;
-    border: 0px ;
-    top: 75%; left: 82%; 
-    height: 13%;
-    width: 13%;
-    cursor: pointer;
-    transition-duration: 0.4s; 
+    border: 0;
+    padding: var(--size-500) var(--size-400);
 }
 
 #button1:hover, #button2:hover, #button3:hover, #button4:hover {
-    color: white;
+    color: var(--clr-primary-400);
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 var(--size-450) rgba(0, 0, 0, 0.3);
 }
 
 /* Popups */
 
 .popup {
     display: none;
-    width: 25%;
-    height: 25%;
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 48.5%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 255, 195, 0.4);
     border: 2px solid rgba(0,197,224, 0.2);
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    box-shadow: 0 0 1.25rem var(--clr-faded-black);
     z-index: 1000;   
 }
 
 .close {
-    color: rgb(0, 114, 129);
-    font-size: 300%;
+    cursor: pointer;
+    padding: 0;
+    color: var(--clr-primary-900);
+    font-size:var(--fs-900);
     margin-left: 5%;
+}
+
+.image-path {
+    padding: var(--size-250);
+    border: none;
+    border-radius: var(--size-100);
+}
+
+.popup-btn {
     cursor: pointer;
+    width: 70%;
+    padding: var(--size-200);
+    background: var(--clr-accent-400);
+    border: none;
+    border-radius: var(--size-200);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-600);
 }
 
-#imagePath {
-    width: 70%;
-    margin-left: 60px;
-    padding: 10px;
-    background: rgb(0, 255, 195);
-    color: rgb(32, 31, 31);
-    border: none;
-    border-radius: 5px;
+.popup-btn:hover {
+    background: var(--clr-primary-600);
+    font-weight: var(--fw-bolder);
+    color: var(--clr-accent-400);
 }
 
-#displayNameInput, #regEmail, #oldPassword, #newPassword {
+.popup-input {
     width: 70%;
-    margin-left: 60px;
-    margin-bottom: 20px;
-    padding: 10px;
-    background: rgb(0, 255, 195);
-    color: rgb(32, 31, 31);
+    background: var(--clr-primary-450);
+    padding: var(--size-250);
     border: none;
-    border-radius: 5px;
-} #displayName:focus, #regEmail:focus, #oldPassword:focus, #newPassword:focus { outline: none; }
-#oldPassword { margin-bottom: 5px; }
-
-#confirmRemoval {
-    margin-top: -5px;
-    text-align: center;
-    color: rgb(32, 31, 31);
-    font-size:20px;
-    font-weight: bolder;
+    border-radius: var(--size-200);
 }
 
-#displayPicBtn, #displayNameBtn, #emailBtn, #removePicBtn, #passwordBtn {
-    width: 70%;
-    margin-top: 20px;
-    margin-left: 70px;
-    padding: 8px;
-    background: orange;
-    color: rgb(32, 31, 31);
-    border: none;
-    border-radius: 5px;
-    font-family: 'Kurale';
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-} #removePicBtn { margin-top: 10px; } #passwordBtn { margin-top: 0; }
-#displayPicBtn:hover, #displayNameBtn:hover, #emailBtn:hover, #removePicBtn:hover, #passwordBtn:hover {
-    background: rgb(0,197,224);
-    font-weight: bolder;
-    color: orange;
+.popup-input:focus {
+    outline: none;
+}
+
+@media (min-width: 36em) {
+    .heading {
+        font-size: var(--fs-900);
+    }
+
+    .welcome {
+        font-size: var(--fs-800);
+    }
+}
+
+@media (min-width: 37em) {
+    .profile-pic {
+        width: 40%;
+    }
+}
+
+@media (min-width: 68em) {
+    .menu {
+        display: none;
+    }
+
+    .primary-nav {
+        display: flex;
+    }
+
+    .page-list {
+        gap: var(--size-300);
+        font-size: var(--fs-750);
+    }
+
+    .main > .container:nth-child(1) {
+        max-width: 100%;
+        flex-direction: row;
+        gap: var(--size-700);
+    }
+
+    .main > .container:nth-child(2) {
+        padding-top: var(--size-650);
+    }
+
+    .profile-pic {
+        width: 60%;
+    }
+
+    .grid-item1, .grid-item2 {
+        font-size: var(--fs-700);
+    }
+
+    .buttons {
+        flex-direction: row;
+        gap: var(--size-600);
+    }
+
+    .button {
+        width: var(--size-1400);
+        height: var(--size-975);
+        font-size: var(--fs-700);
+    }
+
+    .footer {
+        margin-top: var(--size-700);
+    }
+}
+
+@media (min-width: 52em) and (max-height: 38em) {
+    .menu {
+        display: none;
+    }
+
+    .primary-nav {
+        display: flex;
+    }
+
+    .page-list {
+        gap: var(--size-300);
+        font-size: var(--fs-700);
+    }
+
+    .main > .container:nth-child(1) {
+        max-width: 100%;
+        flex-direction: row;
+        gap: var(--size-700);
+    }
+
+    .main > .container:nth-child(2) {
+        padding-top: var(--size-700);
+    }
+
+    .heading {
+        font-size: var(--fs-800);
+    }
+
+    .profile-pic {
+        width: 35%;
+    }
+
+    .welcome {
+        font-size: var(--fs-700);
+    }
+
+    .grid-item1, .grid-item2 {
+        font-size: var(--fs-650);
+    }
+
+    .buttons {
+        flex-direction: row;
+        gap: var(--size-600);
+    }
+
+    .button {
+        padding: 0 var(--size-300);
+        height: var(--size-900);
+        font-size: var(--fs-650);
+    }
+
+    .footer {
+        margin-top: var(--size-550);
+    }
+}
+
+@media (min-width: 61em) and (max-height: 38em) {
+    .main > .container:nth-child(2) {
+        padding-top: var(--size-550);
+    }
+}
+
+@media (min-width: 65em) and (max-height: 38em) {
+    .footer {
+        margin-top: var(--size-500);
+    }
+    .main > .container:nth-child(2) {
+        padding-top: var(--size-500);
+    }
+}
+
+@media (min-width: 69em) and (max-height: 38em) {
+    .footer {
+        margin-top: var(--size-450);
+    }
+    .main > .container:nth-child(2) {
+        padding-top: var(--size-450);
+    }
 }

@@ -3,27 +3,36 @@ if (!token) {
     window.location.href = 'login.html';
 }
 
-const homePage = document.getElementById("navHome")
-const aboutPage = document.getElementById("navAbout")
-const logout = document.getElementById("navLogout")
-const page = document.getElementById("accountPage")
+const homePage = document.getElementById("nav-home")
+const aboutPage = document.getElementById("nav-about")
+const logout = document.getElementById("nav-logout")
+const page = document.getElementById("main")
 const popup1 = document.getElementById("popup1");
 const popup2 = document.getElementById("popup2");
 const popup3 = document.getElementById("popup3");
 const popup4 = document.getElementById("popup4");
 const popup5 = document.getElementById("popup5");
-const updatePic = document.getElementById("updatePicture")
-const uploadForm = document.getElementById("displayPicture");
-const fileInput = document.getElementById('imagePath');
+const updatePic = document.getElementById("update-pic")
+const profileImg = document.getElementById("profile-img");
+const uploadForm = document.getElementById("display-pic");
+const fileInput = document.getElementById('image-path');
 const updateDisplayName = document.getElementById('button1');
-const updateDNForm = document.getElementById('updateDisplayName')
+const updateDNForm = document.getElementById('update-display-name')
 const updateEmail = document.getElementById('button2');
-const updateEmailForm = document.getElementById('updateEmail')
+const updateEmailForm = document.getElementById('update-email')
 const removePicture = document.getElementById('button3');
-const removePicBtn = document.getElementById('removePicBtn')
+const removePicBtn = document.getElementById('remove-pic-btn')
 const changePassword = document.getElementById('button4');
-const changePasswordForm = document.getElementById('updatePassword')
-const profileImg = document.getElementById("profileImg");
+const changePasswordForm = document.getElementById('update-password')
+
+function toggleMenu() {
+    const nav = document.getElementById("popup-nav");
+    if (nav.style.display === "block") {
+      nav.style.display = "none";
+    } else {
+      nav.style.display = "block";
+    }
+}
 
 homePage.addEventListener('click', function(e) {
     e.preventDefault();
@@ -97,12 +106,12 @@ if (userData.profileImgSrc !== null) {
     profileImg.src = "../assets/anon.jpg";
 }
 
-updateElementContent("welcomeMsg", userData.welcomeMsg, "Welcome, Anonymous User!");
-updateElementContent("accountNumber", userData.accountNumber, "123456");
-updateElementContent("firstName", userData.firstName, "Anonymous");
-updateElementContent("lastName", userData.lastName, "User");
-updateElementContent("displayName", userData.displayName, "Anonymous User");
-updateElementContent("emailAddress", userData.emailAddress, "u.anon@gmail.com");
+updateElementContent("welcome-msg", userData.welcomeMsg, "Welcome, Anonymous User!");
+updateElementContent("account-number", userData.accountNumber, "123456");
+updateElementContent("first-name", userData.firstName, "Anonymous");
+updateElementContent("last-name", userData.lastName, "User");
+updateElementContent("display-name", userData.displayName, "Anonymous User");
+updateElementContent("email", userData.emailAddress, "u.anon@gmail.com");
 }
 
 getUserInfo()
@@ -111,47 +120,52 @@ getUserInfo()
 
 function openPopup1() {
     popup1.style.display = "block";
-    page.style.display = "none";
+    page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup1() {
     popup1.style.display = "none";
-    page.style.display = "block";
+    page.style.opacity = "1";
 }
 
 function openPopup2() {
     popup2.style.display = "block";
-    page.style.display = "none";
+    page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup2() {
     popup2.style.display = "none";
-    page.style.display = "block";
+    page.style.opacity = "1";
 }
 
 function openPopup3() {
     popup3.style.display = "block";
-    page.style.display = "none";
+    page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup3() {
     popup3.style.display = "none";
-    page.style.display = "block";
+    page.style.opacity = "1";
 }
 
 function openPopup4() {
     popup4.style.display = "block";
-    page.style.display = "none";
+    page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup4() {
     popup4.style.display = "none";
-    page.style.display = "block";
+    page.style.opacity = "1";
 }
 
 function openPopup5() {
     popup5.style.display = "block";
-    page.style.display = "none";
+    page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup5() {
     popup5.style.display = "none";
-    page.style.display = "block";
+    page.style.opacity = "1";
 }
 
 /* Button functions */

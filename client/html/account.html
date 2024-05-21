@@ -2,113 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="assets/logo.png" />
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexuSolve</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/config.css">
-    <link rel="stylesheet" href="../css/account.css">
-    <script src="../js/account.js" defer></script>
+    <link rel="stylesheet" href="../css/check.css">
+    <script src="../js/check.js" defer></script>
 </head>
-<body>
-
-    <nav>
-        <div id="logo">
-            <img class ="logo" srcset="../assets/logo.png"  alt= "logo">
-            <span>NexuSolve</span>
-        </div>
-        <ul id="toPages">
-            <li class="nav1"><a class="nav1" id="navLogout" href="#">Log Out</a></li>
-            <li class="nav1"><a class="nav1" id="navAbout" href="#">About</a></li>
-            <li class="nav1"><a class="nav1" id="navHome" href="#">Home</a></li>
-        </ul>
-    </nav>
-
-    <div id="popup1" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup1()">&times;</span>
-            <form id="displayPicture">
-                <input type="file" class="regInput" id="imagePath" name="imagePath" required><br><br>
-                <input id="displayPicBtn" type="submit" value="UPLOAD">
-            </form>
-        </div>
-    </div>
-    <div id="popup2" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup2()">&times;</span>
-            <form id="updateDisplayName">
-                <input type="text" class="regInput" id="displayNameInput" name="displayName" placeholder="Enter your display name here" required><br>
-                <input id="displayNameBtn" type="submit" value="SUBMIT">
-            </form>
-        </div>
-    </div>
-    <div id="popup3" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup3()">&times;</span>
-            <form id="updateEmail">
-                <input type="email" class="regInput" id="regEmail" name="email" placeholder="Enter your email here" required><br>
-                <input id="emailBtn" type="submit" value="SUBMIT">
-            </form>
-        </div>
-    </div>
-    <div id="popup4" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup4()">&times;</span>
-            <p id="confirmRemoval">Are you sure you want to remove your profile picture?</p>
-            <button id="removePicBtn">CONFIRM DELETION</button>
-        </div>
-    </div>
-    <div id="popup5" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup5()">&times;</span>
-            <form id="updatePassword">
-                <input type="password" class="regInput" id="oldPassword" name="oldPassword" placeholder="Enter current password here" required><br>
-                <input type="password" class="regInput" id="newPassword" name="password" placeholder="Enter new password here" required><br>
-                <input id="passwordBtn" type="submit" value="SUBMIT">
-            </form>
-        </div>
-    </div>
-
-    <div class="accountPage" id="accountPage">
-
-        <div class="accountBox1">
-
-            <h1>Your Account</h1>
-
-            <button class="profilePicture" id="updatePicture">
-                <img id="profileImg" src="../assets/anon.jpg" alt="Profile Picture">
-            </button>
-
-            <div class="welcome">
-                <p id="welcomeMsg">Welcome, Anonymous User</p>
+<body class="bg-primary ff-body fc-black">
+    <div class="body | body-h">
+        <nav class="nav | height-15">
+            <div class="container | height-100 flow-row-space">
+                <div class="logo | height-100 flex-row-center">
+                    <img src="../assets/logo.png" alt="logo" class="logo-img | height-100">
+                    <p class="logo-name | fc-white fs-750">NexuSolve</p>
+                </div>
+                <a class="menu | fc-white fs-750 menu-padding no-a-style" href="javascript:void(0);" onclick="toggleMenu()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="primary-nav | height-100 flex-row-center" id="primary-nav">
+                    <ul class="page-list | height-75 flex-row-center no-li-style fs-400 fw-bold">
+                        <li class="page-li"><a class="page-link | no-a-style fc-white" id="nav-logout" href="#">Log Out</a></li>
+                        <li class="page-li"><a class="page-link | no-a-style fc-white" id="nav-about" href="#">About</a></li>
+                        <li class="page-li"><a class="page-link | no-a-style fc-white" id="nav-home" href="#">Home</a></li>
+                    </ul>
+                </div>
             </div>
+        </nav>
 
-        </div>
+        <section class="popup-nav" id="popup-nav">
+            <div class="container | bg-faded-blue">
+                <ul class="page-list | height-75 flex-column-center no-li-style fs-700 fw-bold">
+                    <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="nav-logout" href="#">Log Out</a></li>
+                    <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="nav-about" href="#">About</a></li>
+                    <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="nav-home" href="#">Home</a></li>
+                </ul>
+            </div>
+        </section>
 
-        <div class="accountBox2">
-            <div class="grid-item1">Account Number</div>
-            <div class="grid-item2" id="accountNumber">123456</div>
-            <div class="grid-item1">First Name</div>
-            <div class="grid-item2" id="firstName">Anonymous</div>
-            <div class="grid-item1">Last Name</div>
-            <div class="grid-item2" id="lastName">User</div>
-            <div class="grid-item1">Display Name</div>
-            <div class="grid-item2" id="displayName">Anonymous User</div>
-            <div class="grid-item1">Email Address</div>
-            <div class="grid-item2" id="emailAddress">u.anon@gmail.com</div>
-        </div>
+        <section class="popups">
+            <div class="container | max-width grey">
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup1">
+                    <span class="close" onclick="closePopup1()">&times;</span>
+                    <form class="flex-column-center gap-400" id="display-pic">
+                        <input type="file" class="image-path | width-60 fc-black" id="image-path" name="imagePath" required>
+                        <input class="popup-btn | popup-btn-margin" type="submit" value="UPLOAD">
+                    </form>
+                </div>
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup2">
+                    <span class="close" onclick="closePopup2()">&times;</span>
+                    <form class="flex-column-center gap-500" id="update-display-name">
+                        <input type="text" class="popup-input" name="displayName" placeholder="Enter your display name here" required>
+                        <input class="popup-btn | popup-btn-margin" type="submit" value="SUBMIT">
+                    </form>
+                </div>
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup3">
+                    <span class="close" onclick="closePopup3()">&times;</span>
+                    <form class="flex-column-center gap-500" id="update-email">
+                        <input type="email" class="popup-input" name="email" placeholder="Enter your email here" required>
+                        <input class="popup-btn | popup-btn-margin" type="submit" value="SUBMIT">
+                    </form>
+                </div>
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup4">
+                    <span class="close" onclick="closePopup4()">&times;</span>
+                    <div class="flex-column-center gap-400">
+                        <p class="confirm | fs-650 fw-bolder text-center">Are you sure you want to remove your profile picture?</p>
+                        <button class="popup-btn | popup-btn-margin" id="remove-pic-btn">CONFIRM DELETION</button>
+                    </div>
+                </div>
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups" id="popup5">
+                    <span class="close" onclick="closePopup5()">&times;</span>
+                    <form class="flex-column-center gap-500" id="update-password">
+                        <input type="password" class="popup-input" name="oldPassword" placeholder="Enter current password here" required>
+                        <input type="password" class="popup-input" name="password" placeholder="Enter new password here" required>
+                        <input class="popup-btn | popup-btn-margin" type="submit" value="SUBMIT">
+                    </form>
+                </div>
+            </div>
+        </section>
 
-        <div class="buttons">
-            <button class ="button" id = "button1" value="Update Display Name">Update Display Name</button>
-            <button class ="button" id = "button2" value="Update Email">Update Email</button>
-            <button class ="button" id = "button3" value="Update Profile Picture">Remove Profile Picture</button>
-            <button class ="button" id = "button4" value="Change Password">Change Password</button>
-        </div>
+        <section class="main | section-margin-top-l flex-column-center" id="main">
+            <div class="container | height-100 flex-column-center max-width">
+                <div class="profile | width-100 max-width-s flex-column-center">
+                    <p class="heading | fc-black fs-850 text-center section-padding-l">Your Account</p>
+                    <button class="profile-pic | circle width-50" id="update-pic">
+                        <img class="circle" id="profile-img" src="../assets/anon.jpg" alt="Profile Picture">
+                    </button>
+                    <div class="welcome | fc-black fw-bold fs-700 text-center section-padding-l">
+                        <p id="welcome-msg">Welcome, Anonymous User</p>
+                    </div>
+                </div>
+                <div class="info | width-100 padding-top-s grid-account-info">
+                    <div class="grid-item1 | flex-row-right">Account Number</div>
+                    <div class="grid-item2 | flex-row-center" id="account-number">123456</div>
+                    <div class="grid-item1 | flex-row-right">First Name</div>
+                    <div class="grid-item2 | flex-row-center" id="first-name">Anonymous</div>
+                    <div class="grid-item1 | flex-row-right">Last Name</div>
+                    <div class="grid-item2 | flex-row-center" id="last-name">User</div>
+                    <div class="grid-item1 | flex-row-right">Display Name</div>
+                    <div class="grid-item2 | flex-row-center" id="display-name">Anonymous User</div>
+                    <div class="grid-item1 | flex-row-right">Email Address</div>
+                    <div class="grid-item2 | flex-row-center" id="email">u.anon@gmail.com</div>
+                </div>
+            </div>
+            <div class="container | padding-top-m">
+                <div class="buttons | flex-column-center">
+                    <button class ="button | clr-button1 fc-black fs-650 fw-bold" id = "button1" value="Update Display Name">Update Display Name</button>
+                    <button class ="button | clr-button2 fc-black fs-650 fw-bold" id = "button2" value="Update Email">Update Email</button>
+                    <button class ="button | clr-button3 fc-black fs-650 fw-bold" id = "button3" value="Update Profile Picture">Remove Profile Picture</button>
+                    <button class ="button | clr-button4 fc-black fs-650 fw-bold" id = "button4" value="Change Password">Change Password</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer | height-5 section-margin-top-l">
+            <div class="container | height-100 flex-row-center">
+                <p class="copyright | fc-white">&copy; 2024 NexuSolve. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
-    <br>
-    
-    <footer>
-        <p>&copy; 2024 NexuSolve. All rights reserved.</p>
-    </footer>
-
 </body>
 </html>
