@@ -314,6 +314,7 @@
   .section-padding-m { padding: calc(var(--container-height) / (100 / 1.5)) 1rem; }
   .section-padding-s { padding: calc(var(--container-height) / (100 / 1)) 0.5rem; }
 
+  .padding-top-s { padding-top: var(--size-400); }
   .padding-top-m { padding-top: var(--size-700); }
 
   .menu-padding { padding: var(--size-300) var(--size-400); }
