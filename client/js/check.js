@@ -142,6 +142,9 @@ async function displayContent() {
                 `;
                 commentContainer.appendChild(commentElement);
 
+                document.querySelectorAll('.comment-details').forEach(element => {
+                    truncateText(element, 5); // Adjust maxLength as needed
+                });
             });
         }
         
@@ -198,6 +201,10 @@ async function displayContent() {
             // allPostsContainer.insertBefore(document.createElement("br"), firstChild);
             
            displayComments(post.post_id, comments);
+
+           document.querySelectorAll('.post-details').forEach(element => {
+            truncateText(element, 5); // Adjust maxLength as needed
+           });
         });
 }
 
@@ -427,11 +434,11 @@ function getOrdinalSuffix(day) {
     }
 }
 
-// function truncateText(element, maxLength) {
-//     if (element.textContent.length > maxLength) {
-//         element.textContent = element.textContent.substring(0, maxLength) + '...';
-//     }
-// }
+function truncateText(element, maxLength) {
+    if (element.textContent.length > maxLength) {
+        element.textContent = element.textContent.substring(0, maxLength) + '...';
+    }
+}
 
 // function applyTruncation() {
 //     const maxContainerWidth = 100; // Set the max width where truncation should apply
