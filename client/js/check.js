@@ -121,6 +121,7 @@ getUserInfo()
 function openPopup1() {
     popup1.style.display = "block";
     page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup1() {
     popup1.style.display = "none";
@@ -130,6 +131,7 @@ function closePopup1() {
 function openPopup2() {
     popup2.style.display = "block";
     page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup2() {
     popup2.style.display = "none";
@@ -139,6 +141,7 @@ function closePopup2() {
 function openPopup3() {
     popup3.style.display = "block";
     page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup3() {
     popup3.style.display = "none";
@@ -148,6 +151,7 @@ function closePopup3() {
 function openPopup4() {
     popup4.style.display = "block";
     page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup4() {
     popup4.style.display = "none";
@@ -157,6 +161,7 @@ function closePopup4() {
 function openPopup5() {
     popup5.style.display = "block";
     page.style.opacity = "0";
+    page.style.pointerEvents = "none"
 }
 function closePopup5() {
     popup5.style.display = "none";
