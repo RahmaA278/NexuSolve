@@ -149,17 +149,10 @@
     color: var(--clr-neutral-900);
 }
 
-/* .comment-info {
-    align-items: flex-end;
-} */
-
 .comment-link {
     text-decoration: none;
     color: #26201d;
     padding-left: 5px;
-}
-
-button, input[type="submit"], input[type="reset"] {
     background: none;
     color: inherit;
     border: none;
@@ -184,7 +177,8 @@ button, input[type="submit"], input[type="reset"] {
     border: 2px solid rgba(0,197,224, 0.2);
     border-radius: 1rem;
     box-shadow: 0 0 1.25rem var(--clr-faded-black);
-    z-index: 1000;   
+    z-index: 1000;
+    padding: 1rem;
 }
 
 .popup-btn {
