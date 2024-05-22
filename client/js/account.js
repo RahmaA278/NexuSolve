@@ -72,8 +72,8 @@ logout.addEventListener('click', async (e) => {
     const response = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`, options);
 
     if (response.ok) {
-        window.location.href = "login.html"
         localStorage.clear()
+        window.location.href = "login.html"
     } else {
         const data = await response.json();
         alert(data.error);
