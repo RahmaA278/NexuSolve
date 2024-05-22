@@ -65,6 +65,19 @@
 }
 
 @media (min-width: 47em) {
+    .menu {
+        display: none;
+    }
+
+    .primary-nav {
+        display: flex;
+    }
+
+    .page-list {
+        gap: var(--size-300);
+        font-size: var(--fs-700);
+    }
+    
     .main > * h1 {
         font-size: var(--fs-800);
     }
