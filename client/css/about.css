@@ -23,8 +23,17 @@
 
 .about, .rar, .nas, .las, .lpal {
     width: 100%;
-    padding: var(--size-400) var(--size-900);
-    font-size: var(--fs-650);
+    padding: var(--size-400);
+    font-size: var(--fs-600);
+}
+
+.main > * h1 {
+    font-size: var(--fs-750);
+}
+
+.help-center {
+    font-size: var(--fs-850);
+    padding: var(--size-500) 0;
 }
 
 .rar {
@@ -51,6 +60,21 @@
     border-top: var(--size-150) solid var(--clr-neutral-100);
 }
 
-a:link {
-    color: var(--clr-accent-400);
+.main > * a:link {
+    color: var(--clr-accent-500);
+}
+
+@media (min-width: 47em) {
+    .main > * h1 {
+        font-size: var(--fs-800);
+    }
+
+    .help-center {
+        font-size: var(--fs-900);
+    }
+
+    .about, .rar, .nas, .las, .lpal {
+        padding: var(--size-400) var(--fs-900);
+        font-size: var(--fs-650);
+    }
 }

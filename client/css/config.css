@@ -5,6 +5,7 @@
 :root {
     --container-height: 100dvh;
 
+    --clr-accent-500: hsl(39, 100%, 30%);
     --clr-accent-400: hsl(39, 100%, 50%);
     --clr-accent-300: hsl(39, 88%, 75%);
     --clr-accent-250: hsl(44, 79%, 40%);
@@ -389,6 +390,7 @@
   .margin-top-s { margin-top: var(--size-400); }
 
   .bullet-points-1 { margin-left: var(--size-750); }
+  .bullet-points-s { margin-left: var(--size-650); }
 
   /* padding */
 
