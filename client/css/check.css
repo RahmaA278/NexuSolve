@@ -150,20 +150,50 @@
 }
 
 .comment-link {
-    text-decoration: none;
-    color: #26201d;
-    padding-left: 5px;
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
     cursor: pointer;
-    outline: inherit;
+    background: none;
+    border: none;
+    font: inherit;
+    font-weight: var(--fw-semi-bold);
 }
 
 .comment-link:hover {
-    color: #1d7358;
+    color: var(--clr-primary-900);
+}
+
+/* tooltip */
+
+.post-details, .comment-details {
+    cursor: default;
+    position: relative;
+}
+
+.post-details:hover::after, .comment-details:hover::after {
+    content: attr(data-fulltext);
+    position: absolute;
+    top: 90%;
+    width: 18ch;
+    text-align: center;
+    background: var(--clr-faded-black);
+    color: var(--clr-neutral-100);
+    font-size: var(--fs-400);
+    box-shadow: 0 0 var(--size-150) var(--clr-box-border);
+    white-space: normal;
+    z-index: 1;
+}
+
+.category-det:hover::after {
+    left: 10%;
+}
+
+.post-ts:hover::after {
+    right: 10%;
+}
+
+.comment-ts:hover::after {
+    top: 80%;
+    right: 10%;
+    font-size: var(--fs-200);
 }
 
 /* Popups */
