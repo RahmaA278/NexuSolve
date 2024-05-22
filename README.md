@@ -25,7 +25,7 @@ A Reports page: This feature will enable council members to close issues raised 
 ## Frontend
 url: https://nexusolve-client.onrender.com
 
-I've developed responsive designs using pure CSS to cater to three distinct screen sizes: large monitors, medium-sized laptops, and large mobile devices. The application comprises the following pages:
+I've developed responsive designs using pure CSS. The application comprises the following pages:
   - Landing page
   - Registration page
   - Login page
@@ -33,7 +33,7 @@ I've developed responsive designs using pure CSS to cater to three distinct scre
   - Account page
   - About pages
 
-Each page is optimised to adapt seamlessly across the designated screen sizes, ensuring an optimal viewing experience for users accessing the application from different devices.
+Each page is optimised to adapt seamlessly across different screen sizes, ensuring an optimal viewing experience for users accessing the application from different devices.
 
 ## Backend
 url: https://nexusolve-server.onrender.com
@@ -54,6 +54,7 @@ url: https://nexusolve-server.onrender.com
 |:------|---------|---------|------------|------------|
 |/uploads|GET|to upload an image to the uploads.html server file|none|image file|
 |/uploads|POST|to post an image uploaded by the client|none|image file, token|
+|/uploads|DELETE|to delete an image|none|none|
 ### Post Endpoints
 | Endpoints | Method | Purpose | Parameters | Data Required |
 |:------|---------|---------|------------|------------|
