@@ -258,7 +258,6 @@ uploadForm.addEventListener("submit", async (e) => {
         // const postUrl = await fetch("http://localhost:5020/upload", urlOptions)
 
         if (response.ok) {
-            alert("Your picture has been uploaded!");
             window.location.reload();
         } else {
             alert("An error occurred while uploading the picture.");
@@ -299,7 +298,6 @@ updateDNForm.addEventListener("submit", async (e) => {
         const response = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`, options);
 
         if (response.ok) {
-            alert("Your display name has been updated!");
             window.location.reload();
         } else {
             alert("An error occurred while updating your display name.");
@@ -340,7 +338,6 @@ updateEmailForm.addEventListener("submit", async (e) => {
         const response = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`, options);
 
         if (response.ok) {
-            alert("Your email has been updated!");
             window.location.reload();
         } else {
             alert("An error occurred while updating your email.");
@@ -371,7 +368,6 @@ removePicBtn.addEventListener("click", async () => {
         const response = await fetch("https://nexusolve-server.onrender.com/upload", options);
 
         if (response.ok) {
-            alert("Your picture has been removed.");
             window.location.reload();
         } else {
             alert("An error occurred while removing the picture.");
@@ -413,7 +409,6 @@ changePasswordForm.addEventListener("submit", async (e) => {
         const response = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`, options);
 
         if (response.ok) {
-            alert("Your passwod has been changed!");
             window.location.reload();
         } else {
             alert("Incorrect password.");
