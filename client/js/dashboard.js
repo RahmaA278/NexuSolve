@@ -20,6 +20,7 @@ async function handleTokenExpiration(token) {
 
 handleTokenExpiration(token);
 
+const clearToken = document.getElementById("clear")
 const accPage = document.getElementById("nav-account")
 const aboutPage = document.getElementById("nav-about")
 const logout = document.getElementById("nav-logout")
@@ -54,6 +55,10 @@ function toggleMenu() {
     }
 }
 
+clearToken.addEventListener('click', function(e) {
+    localStorage.clear();
+})
+
 accPage.addEventListener('click', function(e) {
     e.preventDefault();
     window.location.href = "account.html"
@@ -77,6 +82,7 @@ aboutPageMob.addEventListener('click', function(e) {
 logout.addEventListener('click', async (e) => {
 
     const token = localStorage.getItem('token');
+    localStorage.clear()
 
     const options = {
         method: "DELETE",
@@ -113,7 +119,6 @@ logoutMob.addEventListener('click', async (e) => {
 
     if (response.ok) {
         window.location.href = "login.html"
-        localStorage.clear()
     } else {
         const data = await response.json();
         alert(data.error);
