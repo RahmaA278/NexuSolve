@@ -526,3 +526,28 @@
   .clr-button2:hover { color: var(--clr-btn2-hover); }
   .clr-button3:hover { color: var(--clr-btn3-hover); }
   .clr-button4:hover { color: var(--clr-btn4-hover); }
+
+  /* loading spinner */
+
+  .loading-spinner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+
+  .loading-spinner .spinner {
+      border: var(--size-400) solid var(--clr-neutral-100);
+      border-top: var(--size-400) solid var(--clr-primary-900);
+      border-radius: 50%;
+      width: var(--size-1000);
+      height: var(--size-1000);
+      animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }

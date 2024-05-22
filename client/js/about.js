@@ -36,6 +36,14 @@ function toggleMenu() {
     }
 }
 
+function showLoading() {
+    document.getElementById('loading-spinner').style.display = 'block';
+}
+
+function hideLoading() {
+    document.getElementById('loading-spinner').style.display = 'none';
+}
+
 homePage.addEventListener('click', function(e) {
     e.preventDefault();
     window.location.href = "dashboard.html"
@@ -68,6 +76,7 @@ logout.addEventListener('click', async (e) => {
         }
     }
 
+    showLoading();
     const response = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`, options);
 
     if (response.ok) {
@@ -77,6 +86,7 @@ logout.addEventListener('click', async (e) => {
         const data = await response.json();
         alert(data.error);
     }
+    hideLoading();
 });
 
 logoutMob.addEventListener('click', async (e) => {
@@ -91,6 +101,7 @@ logoutMob.addEventListener('click', async (e) => {
         }
     }
 
+    showLoading();
     const response = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`, options);
 
     if (response.ok) {
@@ -100,6 +111,7 @@ logoutMob.addEventListener('click', async (e) => {
         const data = await response.json();
         alert(data.error);
     }
+    hideLoading();
 });
 
 window.onload = function() {

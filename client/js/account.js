@@ -37,6 +37,19 @@ function toggleMenu() {
     }
 }
 
+function showLoading() {
+    document.getElementById('loading-spinner').style.display = 'block';
+}
+
+function hideLoading() {
+    document.getElementById('loading-spinner').style.display = 'none';
+}
+
+document.getElementById('clear').addEventListener('click', function(e) {
+    e.preventDefault();
+    localStorage.clear();
+})
+
 homePage.addEventListener('click', function(e) {
     e.preventDefault();
     window.location.href = "dashboard.html"
@@ -69,6 +82,7 @@ logout.addEventListener('click', async (e) => {
         }
     }
 
+    showLoading();
     const response = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`, options);
 
     if (response.ok) {
@@ -78,6 +92,7 @@ logout.addEventListener('click', async (e) => {
         const data = await response.json();
         alert(data.error);
     }
+    hideLoading();
 });
 
 logoutMob.addEventListener('click', async (e) => {
@@ -92,6 +107,7 @@ logoutMob.addEventListener('click', async (e) => {
         }
     }
 
+    showLoading();
     const response = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`, options);
 
     if (response.ok) {
@@ -101,17 +117,20 @@ logoutMob.addEventListener('click', async (e) => {
         const data = await response.json();
         alert(data.error);
     }
+    hideLoading();
 });
 
 /* Update profile information */
 
 async function getUserInfo () {
+    showLoading();
     const userInfo = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`)
     const userInfoData = await userInfo.json()
     const id = userInfoData.account_id
 
     const response = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`)
     const data = await response.json()
+    hideLoading();
 
     const userData = {
         profileImgSrc: data.image_url,
@@ -231,6 +250,7 @@ uploadForm.addEventListener("submit", async (e) => {
         }
     };
 
+    showLoading();
     try {
         const response = await fetch("https://nexusolve-server.onrender.com/upload", options);
         const postUrl = await fetch("https://nexusolve-server.onrender.com/upload", urlOptions)
@@ -246,6 +266,8 @@ uploadForm.addEventListener("submit", async (e) => {
     } catch (error) {
         console.error("Error:", error);
         alert("An error occurred.");
+    } finally {
+        hideLoading();
     }
 });
 
@@ -255,6 +277,7 @@ updateDNForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     closePopup2();
 
+    showLoading();
     try {
         const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`);
         const getId = await getIdRes.json()
@@ -284,6 +307,8 @@ updateDNForm.addEventListener("submit", async (e) => {
     } catch (error) {
         console.error("Error:", error);
         alert("An error occurred.");
+    } finally {
+        hideLoading();
     }
 });
 
@@ -293,6 +318,7 @@ updateEmailForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     closePopup3();
 
+    showLoading();
     try {
         const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`);
         const getId = await getIdRes.json()
@@ -322,6 +348,8 @@ updateEmailForm.addEventListener("submit", async (e) => {
     } catch (error) {
         console.error("Error:", error);
         alert("An error occurred.");
+    } finally {
+        hideLoading();
     }
 });
 
@@ -338,6 +366,7 @@ removePicBtn.addEventListener("click", async () => {
         }
     };
 
+    showLoading();
     try {
         const response = await fetch("https://nexusolve-server.onrender.com/upload", options);
 
@@ -350,6 +379,8 @@ removePicBtn.addEventListener("click", async () => {
     } catch (error) {
         console.error("Error:", error);
         alert("An error occurred.");
+    } finally {
+        hideLoading();
     }
 });
 
@@ -359,6 +390,7 @@ changePasswordForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     closePopup5();
 
+    showLoading();
     try {
         const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`);
         const getId = await getIdRes.json()
@@ -389,5 +421,7 @@ changePasswordForm.addEventListener("submit", async (e) => {
     } catch (error) {
         console.error("Error:", error);
         alert("An error occurred.");
+    } finally {
+        hideLoading();
     }
 });

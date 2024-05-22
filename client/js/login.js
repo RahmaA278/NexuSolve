@@ -1,6 +1,14 @@
 const loginForm = document.getElementById("login-form");
 const regHere = document.getElementById("reg-here");
 
+function showLoading() {
+    document.getElementById('loading-spinner').style.display = 'block';
+}
+
+function hideLoading() {
+    document.getElementById('loading-spinner').style.display = 'none';
+}
+
 loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -18,6 +26,7 @@ loginForm.addEventListener("submit", async (e) => {
         })
     }
 
+    showLoading();
     const response = await fetch("https://nexusolve-server.onrender.com/profiles/login", options);
     const data = await response.json();
 
@@ -28,6 +37,7 @@ loginForm.addEventListener("submit", async (e) => {
     } else {
         alert(data.error);
     }
+    hideLoading();
 })
 
 regHere.addEventListener('click', () => {

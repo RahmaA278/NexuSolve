@@ -54,6 +54,14 @@ function toggleMenu() {
     }
 }
 
+function showLoading() {
+    document.getElementById('loading-spinner').style.display = 'block';
+}
+
+function hideLoading() {
+    document.getElementById('loading-spinner').style.display = 'none';
+}
+
 accPage.addEventListener('click', function(e) {
     e.preventDefault();
     window.location.href = "account.html"
@@ -86,13 +94,17 @@ logout.addEventListener('click', async (e) => {
         }
     }
 
+    showLoading();
     const response = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`, options);
-
+    hideLoading();
+    
     if (response.ok) {
         localStorage.clear()
         window.location.href = "login.html"
     } else {
+        showLoading();
         const data = await response.json();
+        hideLoading();
         alert(data.error);
     }
 });
@@ -108,14 +120,17 @@ logoutMob.addEventListener('click', async (e) => {
             'Content-Type': 'application/json'
         }
     }
-
+    showLoading();
     const response = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`, options);
+    hideLoading();
 
     if (response.ok) {
         localStorage.clear()
         window.location.href = "login.html"
     } else {
+        showLoading();
         const data = await response.json();
+        hideLoading();
         alert(data.error);
     }
 });
@@ -129,6 +144,7 @@ function navigateTo(url) {
 /* Display Posts and Comments */
 
 async function displayContent() {
+    showLoading();
     const postsRes = await fetch('https://nexusolve-server.onrender.com/posts')
     const posts = await postsRes.json()
     const commentsRes = await fetch('https://nexusolve-server.onrender.com/comments')
@@ -264,6 +280,7 @@ async function displayContent() {
            handleMediaQueryChange(mediaQuery);
    
            mediaQuery.addEventListener('change', handleMediaQueryChange);
+           hideLoading();
         });
 }
 
@@ -293,7 +310,7 @@ commentCancelBtn.addEventListener('click', function() {
 
 postBtn.addEventListener('click', async (e) => {
     e.preventDefault();
-
+    showLoading();
     const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`)
     const getId = await getIdRes.json()
     const id = getId.account_id
@@ -336,11 +353,13 @@ postBtn.addEventListener('click', async (e) => {
         console.error('Error:', error.message);
         alert('An error occurred while saving the post.');
     }
+    hideLoading();
 });
 
 allPostsContainer.addEventListener('click', async (e) => {
     if (e.target.classList.contains('comment-link')) {
         e.preventDefault();
+        showLoading();
         const postId = e.target.dataset.postId;
 
         const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`)
@@ -394,6 +413,7 @@ allPostsContainer.addEventListener('click', async (e) => {
                 console.error('Error:', error.message);
                 alert('An error occurred while saving the comment.');
             }
+            hideLoading();
         };
     }
 });
