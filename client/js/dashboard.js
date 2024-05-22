@@ -359,9 +359,8 @@ postBtn.addEventListener('click', async (e) => {
 allPostsContainer.addEventListener('click', async (e) => {
     if (e.target.classList.contains('comment-link')) {
         e.preventDefault();
-        showLoading();
         const postId = e.target.dataset.postId;
-
+        showLoading();
         const getIdRes = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`)
         const getId = await getIdRes.json()
         const id = getId.account_id
@@ -369,6 +368,7 @@ allPostsContainer.addEventListener('click', async (e) => {
         const getProfileRes = await fetch(`https://nexusolve-server.onrender.com/profiles/${id}`)
         const getProfile = await getProfileRes.json()
         const profilePic = getProfile.image_url
+        hideLoading();
 
         commentPopup.style.display = 'block';
         page.style.opacity = "0";
@@ -398,6 +398,7 @@ allPostsContainer.addEventListener('click', async (e) => {
                 body: JSON.stringify(formData)
             }
 
+            showLoading();
             try {
                 const response = await fetch('https://nexusolve-server.onrender.com/comments', options);
                 if (!response.ok) {
