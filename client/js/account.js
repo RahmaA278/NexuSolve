@@ -6,6 +6,9 @@ if (!token) {
 const homePage = document.getElementById("nav-home")
 const aboutPage = document.getElementById("nav-about")
 const logout = document.getElementById("nav-logout")
+const homePageMob = document.getElementById("mob-nav-home")
+const aboutPageMob = document.getElementById("mob-nav-about")
+const logoutMob = document.getElementById("mob-nav-logout")
 const page = document.getElementById("main")
 const popup1 = document.getElementById("popup1");
 const popup2 = document.getElementById("popup2");
@@ -39,12 +42,45 @@ homePage.addEventListener('click', function(e) {
     window.location.href = "dashboard.html"
 });
 
+homePageMob.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = "dashboard.html"
+});
+
 aboutPage.addEventListener('click', function(e) {
     e.preventDefault();
     window.location.href = "about.html"
 });
 
+aboutPageMob.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = "about.html"
+});
+
 logout.addEventListener('click', async (e) => {
+
+    const token = localStorage.getItem('token');
+
+    const options = {
+        method: "DELETE",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const response = await fetch(`https://nexusolve-server.onrender.com/profiles/token/${token}`, options);
+
+    if (response.ok) {
+        window.location.href = "login.html"
+        localStorage.clear()
+    } else {
+        const data = await response.json();
+        alert(data.error);
+    }
+});
+
+logoutMob.addEventListener('click', async (e) => {
 
     const token = localStorage.getItem('token');
 
