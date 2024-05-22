@@ -28,6 +28,10 @@
     --clr-input-bg: hsla(0, 0%, 95%, 0.6);
     --clr-popup-bg: hsla(166, 100%, 50%, 0.4);
     --clr-faded-black: hsla(233, 12%, 13%, 0.3);
+    --clr-btn1-faded: hsla(0, 70%, 83%, 0.8);
+    --clr-btn2-faded: hsla(127, 73%, 88%, 0.9);
+    --clr-btn3-faded: hsla(54, 100%, 84%, 0.9);
+    --clr-btn4-faded: hsla(194, 45%, 65%, 0.3);
 
     --clr-button1: hsl(0, 70%, 83%);
     --clr-button2: hsl(127, 73%, 88%);
@@ -326,6 +330,11 @@
     gap: var(--size-300);
   }
 
+  .about-bg {
+    background: var(--clr-neutral-100);
+    border-radius: var(--size-300);
+  }
+
   /* height */
 
   .body-h { height: var(--container-height); }
@@ -375,6 +384,12 @@
   .popup-margin-bottom { margin-bottom: var(--size-400); }
   .popup-btn-margin { margin-bottom: var(--size-800); }
 
+  .margin-top-l { margin-top: var(--size-900); }
+  .margin-top-m { margin-top: var(--size-500); }
+  .margin-top-s { margin-top: var(--size-400); }
+
+  .bullet-points-1 { margin-left: var(--size-750); }
+
   /* padding */
 
   .body-padding { padding: 0 var(--size-400); }
@@ -385,6 +400,11 @@
 
   .padding-top-s { padding-top: var(--size-400); }
   .padding-top-m { padding-top: var(--size-700); }
+  .padding-top-l { padding-top: var(--size-900); }
+
+  .padding-bottom-xs { padding-bottom: var(--size-100); }
+  .padding-bottom-s { padding-bottom: var(--size-400); }
+  .padding-bottom-m { padding-bottom: var(--size-700); }
 
   .menu-padding { padding: var(--size-300) var(--size-400); }
 
@@ -401,6 +421,10 @@
   /* borders */
 
   .circle { border-radius: 50%; }
+  .heading-border {
+    border: var(--size-100) solid var(--clr-primary-900);
+    border-radius: var(--size-300);
+  }
 
   /* background colors */
 
