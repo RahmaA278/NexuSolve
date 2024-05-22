@@ -37,6 +37,7 @@
     --clr-btn2-hover: hsl(127, 27%, 42%);
     --clr-btn3-hover: hsl(39, 100%, 30%);
     --clr-btn4-hover: hsl(195, 100%, 28%);
+    --clr-post-bg: hsl(161, 60%, 28%);
 
     --ff-primary: "Kurale", sans-serif;
   
@@ -141,6 +142,7 @@
 
     --max-width: 45rem;
     --max-width-s: 33rem;
+    --pic-max-width: 5rem;
 
     /* Style for smallest screen size */
   
@@ -285,44 +287,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 
-.flex-column-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+  .flex-column-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
 
-.flex-row-right {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
+  .flex-row-right {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+  }
 
-.flex-row-space {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+  .flex-row-space {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
 
-.grid-account-info {
+  .grid-account-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--size-100);
+  }
+
+  .grid-help-l {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--size-300);
+  }
+
+  .grid-help-s {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--size-100);
-}
-
-.grid-help-l {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--size-300);
-}
-
-.grid-help-s {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--size-300);
-}
+    gap: var(--size-300);
+  }
 
   /* height */
 
@@ -346,6 +348,7 @@
 
   .max-width { max-width: var(--max-width); }
   .max-width-s { max-width: var(--max-width-s); }
+  .pic-max-width { max-width: var(--pic-max-width); }
 
   .width-1 { width: 1rem; }
   .width-2 { width: 2rem; }
@@ -387,6 +390,7 @@
 
   /* flex gaps */
 
+  .gap-200 { gap: var(--size-200); }
   .gap-400 { gap: var(--size-400); }
   .gap-500 { gap: var(--size-500); }
   .gap-600 { gap: var(--size-600); }

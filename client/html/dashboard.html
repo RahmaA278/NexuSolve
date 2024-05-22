@@ -2,140 +2,158 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="assets/logo.png" />
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexuSolve</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/config.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <script src="../js/dashboard.js" defer></script>
 </head>
-<body>
-
-    <nav>
-        <div id="logo">
-            <img class ="logo" srcset="../assets/logo.png"  alt= "logo">
-            <span>NexuSolve</span>
-        </div>
-        <ul id="toPages">
-            <li class="nav1"><a class="nav1" id="navLogout" href="#">Log Out</a></li>
-            <li class="nav1"><a class="nav1" id="navAbout" href="#">About</a></li>
-            <li class="nav1"><a class="nav1" id="navAcc" href="#">Account</a></li>
-        </ul>
-    </nav>
-
-    <div id="postFormPopup" class="formPopup">
-        <p>Please complete this form to post your issue</p>
-        <form id="postForm">
-            <select id="dropDownCate" name="dropdown-cate">
-                <option value="" disabled selected hidden>Select a category</option>
-                <option value="Rubbish and Recycling">Rubbish and Recycling</option>
-                <option value="Neighbourhood and Streets">Neighbourhood and Streets</option>
-                <option value="Learning and Schools">Learning and Schools</option>
-                <option value="Leisure, Parks and Libraries">Leisure, Parks and Libraries</option>
-            </select>
-            <input type="text" class="postFormInput" id="postTitle" name="post-title" placeholder="Enter a title for your post here." required><br>
-            <input type="text" class="postFormInput" id="postContent" name="post-content" placeholder="Write your post here." required><br>
-            <label for="anonCheckbox">Do you want to post anonymously?</label>
-            <input type="checkbox" id="anonCheckbox" name="anon-checkbox"><br>
-            <input id="postBtn" type="submit" value="Post">
-            <input id="postCancelBtn" type="submit" value="Cancel">
-        </form>
-    </div>
-
-    <div id="postCommentPopup" class="formPopup">
-        <p>Enter your comment:</p>
-        <form id="commentForm">
-            <input type="text" id="commentInput">
-            <label for="anonCheckbox2">Do you want to comment anonymously?</label>
-            <input type="checkbox" id="anonCheckbox2" name="anon-checkbox2"><br>
-            <input id="commentSubmit" type="submit" value="Comment">
-            <input id="commentCancelBtn" type="submit" value="Cancel">
-        </form>
-    </div>
-
-    <br>
-
-    <div id="mainBody">
-
-        <div class="helpBox">
-            <img src="../assets/background.png" alt="background">
-            <div class="grid-container">
-                <button class="grid-item" id="rarBox">Rubbish and Recycling</button>
-                <button class="grid-item" id="nasBox">Neighbourhood and streets</button>
-                <button class="grid-item" id="lasBox">Learning and schools</button>
-                <button class="grid-item" id="lpalBox">Leisure, parks and libraries</button>
-              </div>
-        </div>
-        
-        <div id="homeHeader">
-            <div id="discuss">
-                <p id="reportH1">Discussions</p>
+<body class="bg-primary ff-body fc-black">
+    <div class="body | body-h body-padding">
+        <nav class="nav | height-15">
+            <div class="container | height-100 flex-row-space">
+                <div class="logo | height-100 flex-row-center">
+                    <img src="../assets/logo.png" alt="logo" class="logo-img | height-100">
+                    <p class="logo-name | fc-white fs-750">NexuSolve</p>
+                </div>
+                <a class="menu | fc-white fs-750 menu-padding no-a-style" href="javascript:void(0);" onclick="toggleMenu()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="primary-nav | height-100 flex-row-center" id="primary-nav">
+                    <ul class="page-list | height-75 flex-row-center no-li-style fs-400 fw-bold">
+                        <li class="page-li"><a class="page-link | no-a-style fc-white" id="nav-account" href="#">Account</a></li>
+                        <li class="page-li"><a class="page-link | no-a-style fc-white" id="nav-about" href="#">About</a></li>
+                        <li class="page-li"><a class="page-link | no-a-style fc-white" id="nav-logout" href="#">Log Out</a></li>
+                    </ul>
+                </div>
             </div>
+        </nav>
 
-            <div id="reportBtn">
-                <button class="buttons" id="reportIssueBtn">Report an issue</button>
+        <section class="popup-nav" id="popup-nav">
+            <div class="container | bg-faded-blue">
+                <ul class="page-list | height-75 flex-column-center no-li-style fs-700 fw-bold">
+                    <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="mob-nav-account" href="#">Account</a></li>
+                    <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="mob-nav-about" href="#">About</a></li>
+                    <li class="page-li | width-100"><a class="page-link | no-a-style fc-white" id="mob-nav-logout" href="#">Log Out</a></li>
+                </ul>
             </div>
-        </div>
+        </section>
 
-        <br>
+        <section class="popups">
+            <div class="container | max-width grey">
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups fs-650" id="post-popup">
+                    <form class="flex-column-center gap-400" id="post-form">
+                        <p class="popup-margin-top text-center fs-620 fw-bold">Please complete this form to post your issue</p>
+                        <select class="dropdown" id="dropdown" name="dropdown">
+                            <option value="" disabled selected hidden>Select a category</option>
+                            <option value="Rubbish and Recycling">Rubbish and Recycling</option>
+                            <option value="Neighbourhood and Streets">Neighbourhood and Streets</option>
+                            <option value="Learning and Schools">Learning and Schools</option>
+                            <option value="Leisure, Parks and Libraries">Leisure, Parks and Libraries</option>
+                        </select>
+                        <input type="text" class="popup-input" id="post-title" name="post-title" placeholder="Enter a title for your post here." required>
+                        <input type="text" class="popup-input" id="post-content" name="post-content" placeholder="Write your post here." required>
+                        <div class="flex-row-center gap-400">
+                            <label for="post-checkbox" class="fs-620">Do you want to post anonymously?</label>
+                            <input type="checkbox" class="checkbox" id="post-checkbox" name="post-checkbox">
+                        </div>
+                        <div class="flex-row-center gap-700">
+                            <input type="submit" class="popup-btn | popup-margin-bottom" id="post-btn" value="Post">
+                            <input type="submit" class="popup-btn | popup-margin-bottom" id="post-cancel-btn" value="Cancel">
+                        </div>
+                    </form>
+                </div>
+                <div class="popup | width-90 flex-column-center max-width-s bg-popups fs-650" id="comment-popup">
+                    <p class="popup-margin-top text-center">Enter your comment:</p>
+                    <form class="flex-column-center gap-400" id="comment-form">
+                        <input type="text" class="popup-input" id="comment-input">
+                        <div class="flex-row-center gap-400">
+                            <label for="comment-checkbox" class="fs-620">Do you want to comment anonymously?</label>
+                            <input type="checkbox" class="checkbox" id="comment-checkbox" name="comment-checkbox">
+                        </div>
+                        <div class="flex-row-center gap-700">
+                            <input type="submit" class="popup-btn | popup-margin-bottom" id="comment-submit" value="Comment">
+                            <input type="submit" class="popup-btn | popup-margin-bottom" id="comment-cancel-btn" value="Cancel">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
 
-        <!-- POSTS -->
-        <div class="allPosts" id="all-posts">
-            <div class="fullPost">
-                <div class="subPost">
-                    <div class="post">
-                        <div class="profile-picture">
-                            <img src="../assets/logo.png" alt="Profile Picture">
-                        </div>
-                        <div class="post-content">
-                            <p class="postTitle">NexuSolve</p>
-                            <p class="postBody">Report issues and find resolutions as a community. Get started by clicking the 'Report an issue' button!</p>
-                        </div>
-                    </div>
-                    <div class="postInfo">
-                        <div class="postProperties" id="category">
-                            <p class="pstInfo"></p>
-                        </div>
-                        <div class=""postProperties>
-                            <p class="speech"></p>
-                        </div>
-                        <div class="postProperties" id="toComment">
-                            <a id="commentLink2" href="#"></a>
-                        </div>
-                        <div class="postProperties" id="postTimeStamp">
-                            <p class="pstInfo"></p>
-                        </div>
+        <section class="main | section-margin-top-l flex-column-center" id="main">
+            <div class="container | height-100 flex-column-center max-width">
+                <div class="help">
+                    <img src="../assets/background.png" alt="background">
+                    <div class="help-grid | grid-help-s">
+                        <button class ="button | clr-button1 fc-black fs-650 fw-bold" id="rar-box">Rubbish and Recycling</button>
+                        <button class ="button | clr-button2 fc-black fs-650 fw-bold" id="nas-box">Neighbourhood and streets</button>
+                        <button class ="button | clr-button3 fc-black fs-650 fw-bold" id="las-box">Learning and schools</button>
+                        <button class ="button | clr-button4 fc-black fs-650 fw-bold" id="lpal-box">Leisure, parks and libraries</button>
                     </div>
                 </div>
-                <div class="comments" id="comment">
-                    <div class="subComment">
-                        <div class="comment">
-                            <div class="profile-picture">
-                                <img src="../assets/logo.png" alt="Profile Picture">
-                            </div>
-                            <div class="comment-content">
-                                <p>You'll soon be able to raise any unresolved issues to the council directly!</p>
+            </div>
+            <div class="container | padding-top-s">
+                <div class="home-header | flex-row-space">
+                    <p class="fc-black fw-bold fs-700">Discussions</p>
+                    <button class="report-btn" id="report-btn">Report an issue</button>
+                </div>
+            </div>
+            <div class="container | padding-top-s">
+                <div class="all-posts" id="all-posts">
+                    <div class="full-post">
+                        <div class="sub-post">
+                            <div class="width-100 flex-row-center gap-200">
+                                <img class="width-25 pic-max-width" src="../assets/logo.png" alt="Profile Picture">
+                                <div class="post-content">
+                                    <div class="post-script">
+                                        <p class="post-title">NexuSolve</p>
+                                        <p class="post-text">Report issues and find resolutions as a community. Get started by clicking the 'Report an issue' button!</p>
+                                    </div>
+                                    <!-- <div class="post-info">
+                                        <div class="post-properties" id="category">
+                                            <p class="post-details"></p>
+                                        </div>
+                                        <div class="post-properties" id="comment-btn">
+                                            <a class="comment-link" id="comment-link" href="#"></a>
+                                        </div>
+                                        <div class="post-properties" id="post-timestamp">
+                                            <p class="post-details"></p>
+                                        </div>
+                                    </div> -->
+                                </div>
                             </div>
                         </div>
-                        <div class="commentInfo">
-                            <div></div>
-                            <div class="commentProperties" id="commentTimeStamp4">
-                                <p class="cmntInfo"></p>
+                        <div class="comments" id="comment">
+                            <div class="sub-comment">
+                                <div class="width-100 flex-row-center gap-200">
+                                    <img class="width-25 pic-max-width" src="../assets/logo.png" alt="Profile Picture">
+                                    <div class="comment-content">
+                                        <div class="comment-script">
+                                            <p>You'll soon be able to raise any unresolved issues to the council directly!</p>
+                                        </div>
+                                        <!-- <div class="comment-info">
+                                            <div class="comment-properties" id="comment-timestamp">
+                                                <p class="comment-details"></p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
                             </div>
+                            <!-- More comments added here -->
                         </div>
                     </div>
-                    <!-- More comments added here -->
+                    <!-- More posts added here -->
                 </div>
-            </div> <br>
-            <!-- More posts added here -->
-        </div>
+            </div>
+        </section>
+
+        <footer class="footer | height-5 section-margin-top-l">
+            <div class="container | height-100 flex-row-center">
+                <p class="copyright | fc-white">&copy; 2024 NexuSolve. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
-
-    <br>
-    
-    <footer>
-        <p>&copy; 2024 NexuSolve. All rights reserved.</p>
-    </footer>
-
 </body>
 </html>
